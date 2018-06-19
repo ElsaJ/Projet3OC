@@ -18,12 +18,16 @@ class GameManager {
 // function Start the game
     
     func startGame() {
-        print("Welcome to the Game")
+        print("Welcome to the Game of Swift 3")
         print("Please enter your name.")
         var playerOne = readLine()
         print("Please enter your name.")
         var playerTwo = readLine()
     }
 }
-    
+var start = GameManager()
+
+
+
+
 
