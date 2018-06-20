@@ -10,3 +10,6 @@ import Foundation
 
 print("Hello, World!")
 start.startGame()
+playerOne.chooseName()
+playerTwo.chooseName()
+
