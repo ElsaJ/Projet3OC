@@ -13,3 +13,11 @@ start.startGame()
 playerOne.chooseName()
 playerTwo.chooseName()
 
+
+
+
+    // démarrer jeu
+    // redémarrer jeu
+    // quitter jeu
+
+
