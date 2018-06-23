@@ -11,6 +11,11 @@ import Foundation
 // Creation class Player
 
 class Player {
+
+var numberOfPlayer = 2
+var team = [String].self
+var numberOfTeam = 2
+    
     
     func chooseName() {
         let name = readLine()

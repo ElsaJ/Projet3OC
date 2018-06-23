@@ -24,6 +24,9 @@ class Character {
     self.baseWeapon = baseWeapon
     
     }
+
+// Créer fonction attaque
+    
 }
 
 // Class fighter character
@@ -58,11 +61,13 @@ class Fairy: Character{
     }
 }
 
-//class Magus Characer
+//class Magus Character
 
 class Magus: Character {
     init(){
         super.init(name:"Magus", maxLifePoint: 80 , baseWeapon: "Plant")
     }
+
+//créer fonction treat
 }
 
