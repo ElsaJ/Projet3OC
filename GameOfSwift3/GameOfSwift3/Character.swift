@@ -67,8 +67,11 @@ class Magus: Character {
     init(){
         super.init(characterType: "Magus", maxLifePoint: 80 , tools: "Plant")
     }
-
-//créer fonction treat
     
 }
+
+
+
+
+
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E52BCE9A20DA27130051DDF1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52BCE9920DA27130051DDF1 /* Player.swift */; };
+		E52BCE9C20DB76560051DDF1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52BCE9B20DB76560051DDF1 /* Character.swift */; };
 		E55F49A720D7A21100FDCCFC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F49A620D7A21100FDCCFC /* main.swift */; };
 		E55F49AE20D7A35200FDCCFC /* ManagerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F49AD20D7A35200FDCCFC /* ManagerGame.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E52BCE9920DA27130051DDF1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		E52BCE9B20DB76560051DDF1 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		E55F49A320D7A21000FDCCFC /* GameOfSwift3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GameOfSwift3; sourceTree = BUILT_PRODUCTS_DIR; };
 		E55F49A620D7A21100FDCCFC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E55F49AD20D7A35200FDCCFC /* ManagerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerGame.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 			children = (
 				E55F49A620D7A21100FDCCFC /* main.swift */,
 				E55F49AD20D7A35200FDCCFC /* ManagerGame.swift */,
+				E52BCE9920DA27130051DDF1 /* Player.swift */,
+				E52BCE9B20DB76560051DDF1 /* Character.swift */,
 			);
 			path = GameOfSwift3;
 			sourceTree = "<group>";
@@ -123,7 +129,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E55F49A720D7A21100FDCCFC /* main.swift in Sources */,
+				E52BCE9A20DA27130051DDF1 /* Player.swift in Sources */,
 				E55F49AE20D7A35200FDCCFC /* ManagerGame.swift in Sources */,
+				E52BCE9C20DB76560051DDF1 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

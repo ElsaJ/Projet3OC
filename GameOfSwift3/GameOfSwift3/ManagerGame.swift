@@ -10,36 +10,23 @@ import Foundation
 
 // Create Game Manager to control the Game
 
-
 class GameManager {
+    var playerOne = Player(name: "PlayerOne")
     
-    let numberOfTeam = 2
-    let numberofplayer = 2
-    var game: Bool = false
+    var playerTwo: Player?
+  
     
 // function Start the game
     
     func startGame() {
         print("Welcome to Game of Swift 3")
-        print("Please enter your name.")
-        _ = readLine()
+        print("Please enter your name: ")
+        var playerOneName = readLine()
+        if let playerOneName = playerOneName {
+            playerOne = Player(name: playerOneName)
+        }
         
-        game = true
-        
-    }
-    
-    func restartGame () {
-        print("Do you want to restart?")
-        
-        game = true
+        playerOne.nameYourself()
         
     }
 }
-var start = GameManager()
-var restart = GameManager()
-
-
-
-
-
-
