@@ -12,20 +12,23 @@ import Foundation
 
 class Character {
     
-    var numberOfCharacter = 5
+    let numberOfCharacter = 5
     var lifePoint: Int?
+    var name: String?
     
-    var name: String
+    var characterType = String()
     var maxLifePoint: Int
-    var baseWeapon: String
-    init(name: String, maxLifePoint: Int, baseWeapon: String) {
-    self.name = name
+    var tools: String
+    init(characterType: String, maxLifePoint: Int, tools: String) {
+    self.characterType = characterType
     self.maxLifePoint = maxLifePoint
-    self.baseWeapon = baseWeapon
+    self.tools = tools
     
     }
 
-// Créer fonction attaque
+
+    // Créer fonction pour que le joueur choisisse un nom unique par character
+    // Créer fonction attaque
     
 }
 
@@ -33,7 +36,7 @@ class Character {
 
 class Fighter: Character {
     init(){
-        super.init(name:"fighter", maxLifePoint: 100, baseWeapon:"sword")
+        super.init(characterType: "fighter", maxLifePoint: 100, tools:"sword")
     }
 }
 
@@ -41,7 +44,7 @@ class Fighter: Character {
 
 class Colossus: Character {
     init(){
-        super.init(name:"Colossus", maxLifePoint: 150, baseWeapon: "mace")
+        super.init(characterType: "Colossus", maxLifePoint: 150, tools: "mace")
     }
 }
 
@@ -49,7 +52,7 @@ class Colossus: Character {
 
 class Dwarf: Character {
     init(){
-        super.init(name:"Dwarf", maxLifePoint: 120, baseWeapon: "axe")
+        super.init(characterType: "Dwarf", maxLifePoint: 120, tools: "axe")
     }
 }
 
@@ -57,7 +60,7 @@ class Dwarf: Character {
 
 class Fairy: Character{
     init(){
-    super.init(name:"Fairy", maxLifePoint: 180, baseWeapon: "Saber")
+        super.init(characterType: "Fairy", maxLifePoint: 180, tools: "Saber")
     }
 }
 
@@ -65,7 +68,7 @@ class Fairy: Character{
 
 class Magus: Character {
     init(){
-        super.init(name:"Magus", maxLifePoint: 80 , baseWeapon: "Plant")
+        super.init(characterType: "Magus", maxLifePoint: 80 , tools: "Plant")
     }
 
 //créer fonction treat

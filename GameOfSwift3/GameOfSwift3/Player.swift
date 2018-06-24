@@ -22,6 +22,11 @@ var numberOfTeam = 2
         print("Hello \(String(describing: name))")
         
     }
+    
+    func createTeam(){
+        print("Choose three characters")
+        
+    }
 }
 var playerOne = Player()
 var playerTwo = Player()
