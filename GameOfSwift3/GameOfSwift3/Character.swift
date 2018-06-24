@@ -26,9 +26,6 @@ class Character {
     
     }
 
-
-    // Créer fonction pour que le joueur choisisse un nom unique par character
-    // Créer fonction attaque
     
 }
 
@@ -72,5 +69,6 @@ class Magus: Character {
     }
 
 //créer fonction treat
+    
 }
 

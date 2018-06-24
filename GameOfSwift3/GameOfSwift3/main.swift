@@ -14,7 +14,13 @@ playerOne.chooseName()
 playerTwo.chooseName()
 
 
+// initial status
 
+enum game {
+    case start
+    case restart
+    case quit
+}
 
     // démarrer jeu
     // redémarrer jeu
