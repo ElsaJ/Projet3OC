@@ -10,23 +10,19 @@ import Foundation
 
 // Creating class Character
 
+
 class Character {
     
-    let numberOfCharacter = 5
     var lifePoint: Int?
     var name: String?
-    
-    var characterType = String()
     var maxLifePoint: Int
     var tools: String
     init(characterType: String, maxLifePoint: Int, tools: String) {
-    self.characterType = characterType
     self.maxLifePoint = maxLifePoint
     self.tools = tools
     
     }
 
-    
 }
 
 // Class fighter character

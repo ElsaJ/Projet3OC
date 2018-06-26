@@ -11,43 +11,29 @@ import Foundation
 // Creation class Player
 
 class Player {
-
+    var team: [String]
+    var numberOfCharacter = 0
+    let characterType = ["fighter", "Colossus", "Dwarf", "Fairy", "Magus"]
+    
     var name: String
-    init(name: String) {
+    init(name: String, team: [String]) {
         self.name = name
-    }
-
-    func nameYourself() {
-        print("Hello my name is \(name)")
+        self.team = team
     }
     
-//var team = [String].self
-//let numberOfCharacter = 3
+    func nameYourself() {
+        print("\(name)")
+    }
+    
+    func chooseCharacters() {
+        print("\(characterType)")
+        while numberOfCharacter < 3 {
+            numberOfCharacter += 1
+        }
+    }
+    
+}
 
-//    func chooseName() {
-//        let name = readLine()
-//        print("Welcome \(String(describing: name))")
-//
-//    }
-
-//    enum characterChoice {
-//        case Fighter()
-//        case Colossus()
-//        case Dwarf()
-//        case Fairy()
-//        case Magus()
-//    }
-//
-//    func createTeam(){
-//        for _ in 1...numberOfTeam {
-//        print("Choose three characters for your team")
-//        }
-//
-//        for _ in 1...numberOfCharacter {
-//
-//        }
-//
-//    }
 
 // Créer fonction pour que le joueur choisisse un nom unique par character
 // Donner la liste des personnages de l'équipe adverse avec les propriétés utiles
@@ -70,6 +56,5 @@ class Player {
     
    // quand tous les persos d'une équipe sont morts le joueur a perdu
 
-}
 
 
