@@ -15,18 +15,18 @@ class GameManager {
     var playerTwo = Player(name:"PlayerTwo", team: ["T2"])
   
     
-// function Start the game
+    // function Start the game
     
     func startGame() {
         print("Welcome to Game of Swift 3")
-        print("Please enter your name: ")
+        print("Player one please enter your name: ")
         let playerOneName = readLine()
         if let playerOneName = playerOneName {
             playerOne = Player(name: playerOneName, team: ["T1"])
         }
         playerOne.nameYourself()
         
-        print("Please enter your name: ")
+        print("Player two please enter your name: ")
         let playerTwoName = readLine()
         if let playerTwoName = playerTwoName {
             playerTwo = Player(name: playerTwoName, team: ["T2"])
@@ -34,8 +34,11 @@ class GameManager {
         
         playerTwo.nameYourself()
         
-        print("Thanks, know choose three characters for your team")
+        print("thanks, know make your own team of winners!")
         playerOne.chooseCharacters()
-        
+        playerTwo.chooseCharacters()
     }
+    
 }
+    
+

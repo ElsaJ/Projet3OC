@@ -12,8 +12,7 @@ import Foundation
 
 class Player {
     var team: [String]
-    var numberOfCharacter = 0
-    let characterType = ["fighter", "Colossus", "Dwarf", "Fairy", "Magus"]
+    var numberOfCharacter = 3
     
     var name: String
     init(name: String, team: [String]) {
@@ -26,12 +25,18 @@ class Player {
     }
     
     func chooseCharacters() {
-        print("\(characterType)")
-        while numberOfCharacter < 3 {
-            numberOfCharacter += 1
+            print("choose three characters for your team"
+                + "\n1. the Fighter"
+                + "\n2. The Colossus"
+                + "\n3. The Dwarf"
+                + "\n4. The Fairy"
+                + "\n5. The Magus")
+        
+        if let team = readLine() {
+            print("\([team])")
+    
         }
     }
-    
 }
 
 
@@ -55,6 +60,3 @@ class Player {
     
     
    // quand tous les persos d'une équipe sont morts le joueur a perdu
-
-
-
