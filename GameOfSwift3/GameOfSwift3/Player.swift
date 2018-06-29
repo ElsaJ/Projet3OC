@@ -21,25 +21,13 @@ class Player {
     }
     
     func nameYourself() {
-        print("\(name)")
+        print("Welcome \(name) !")
     }
     
     func chooseCharacters() {
-            print("choose three characters for your team"
-                + "\n1. the Fighter"
-                + "\n2. The Colossus"
-                + "\n3. The Dwarf"
-                + "\n4. The Fairy"
-                + "\n5. The Magus")
-        
-        if let team = readLine() {
-            print("\([team])")
-    
-        }
+        print("\([team])")
     }
 }
-
-
 
 // Créer fonction pour que le joueur choisisse un nom unique par character
 // Donner la liste des personnages de l'équipe adverse avec les propriétés utiles

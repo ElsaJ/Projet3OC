@@ -11,9 +11,11 @@ import Foundation
 // Create Game Manager to control the Game
 
 class GameManager {
+    let numberOfPlayers = 2
+    let numberOfTeam = 2
     var playerOne = Player(name:"PlayerOne", team: ["T1"])
     var playerTwo = Player(name:"PlayerTwo", team: ["T2"])
-  
+    
     
     // function Start the game
     
@@ -24,6 +26,7 @@ class GameManager {
         if let playerOneName = playerOneName {
             playerOne = Player(name: playerOneName, team: ["T1"])
         }
+        
         playerOne.nameYourself()
         
         print("Player two please enter your name: ")
@@ -34,11 +37,34 @@ class GameManager {
         
         playerTwo.nameYourself()
         
-        print("thanks, know make your own team of winners!")
-        playerOne.chooseCharacters()
-        playerTwo.chooseCharacters()
+        print(" \(playerOneName) know choose three characters for your team"
+                + "\n1. the Fighter"
+                + "\n2. The Colossus"
+                + "\n3. The Dwarf"
+                + "\n4. The Fairy"
+                + "\n5. The Magus")
+            let teamOne = readLine()
+            if let teamOne = teamOne {
+                playerOne = Player(name: "PlayerOne", team: [teamOne])
+            }
+            
+            playerOne.chooseCharacters()
+    
+        print(" \(playerTwoName) know choose three characters for your team"
+            + "\n1. the Fighter"
+            + "\n2. The Colossus"
+            + "\n3. The Dwarf"
+            + "\n4. The Fairy"
+            + "\n5. The Magus")
+            let teamTwo = readLine()
+            if let teamTwo = teamTwo {
+                playerTwo = Player(name: "PlayerTwo", team: [teamTwo])
+            }
+           
+            playerTwo.chooseCharacters()
+        
     }
     
 }
-    
+
 
