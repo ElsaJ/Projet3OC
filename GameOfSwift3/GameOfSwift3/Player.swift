@@ -40,6 +40,7 @@ class Player {
 }
 
 
+
 // Créer fonction pour que le joueur choisisse un nom unique par character
 // Donner la liste des personnages de l'équipe adverse avec les propriétés utiles
 

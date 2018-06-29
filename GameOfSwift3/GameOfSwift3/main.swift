@@ -11,3 +11,27 @@ import Foundation
 print("Hello, World!")
 var gameManager = GameManager()
 gameManager.startGame()
+
+func menu() {
+    print("What do you want to do?"
+    + "\n1. Restart"
+    + "\n2. Make new team"
+    + "\n3. Quit")
+    
+    if let choice = readLine(){
+        switch choice {
+        case"1":
+            print("Restart")
+        case"2":
+            print("Make new team")
+        case"3":
+            print("Quit")
+        default:
+            print("What?")
+        }
+    }
+}
+
+while true {
+    menu()
+}
