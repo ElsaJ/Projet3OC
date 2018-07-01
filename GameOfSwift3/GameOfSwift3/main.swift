@@ -14,9 +14,9 @@ gameManager.startGame()
 
 func menu() {
     print("What do you want to do?"
-    + "\n1. Restart"
-    + "\n2. Make new team"
-    + "\n3. Quit")
+        + "\n1. Restart"
+        + "\n2. Make new team"
+        + "\n3. Quit")
     
     if let choice = readLine(){
         switch choice {

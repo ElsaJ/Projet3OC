@@ -12,7 +12,7 @@ import Foundation
 
 class GameManager {
     let numberOfPlayers = 2
-    let numberOfTeam = 2
+    var numberOfTeam = 2
     var playerOne = Player(name:"PlayerOne", team: ["T1"])
     var playerTwo = Player(name:"PlayerTwo", team: ["T2"])
     
@@ -37,34 +37,38 @@ class GameManager {
         
         playerTwo.nameYourself()
         
-        print(" \(playerOneName) know choose three characters for your team"
-                + "\n1. the Fighter"
-                + "\n2. The Colossus"
-                + "\n3. The Dwarf"
-                + "\n4. The Fairy"
-                + "\n5. The Magus")
-            let teamOne = readLine()
-            if let teamOne = teamOne {
-                playerOne = Player(name: "PlayerOne", team: [teamOne])
-            }
-            
-            playerOne.chooseCharacters()
-    
-        print(" \(playerTwoName) know choose three characters for your team"
-            + "\n1. the Fighter"
-            + "\n2. The Colossus"
-            + "\n3. The Dwarf"
-            + "\n4. The Fairy"
-            + "\n5. The Magus")
-            let teamTwo = readLine()
-            if let teamTwo = teamTwo {
-                playerTwo = Player(name: "PlayerTwo", team: [teamTwo])
-            }
-           
-            playerTwo.chooseCharacters()
+        playerOne.makeYourTeam()
+        playerTwo.makeYourTeam()
         
     }
-    
 }
-
-
+        
+        // create team
+        
+//        print("Thanks know choose three characters for your team"
+//            + "\n1. the Fighter"
+//            + "\n2. The Colossus"
+//            + "\n3. The Dwarf"
+//            + "\n4. The Fairy"
+//            + "\n5. The Magus")
+//
+//        let teamOne = readLine()
+//        if let teamOne = teamOne {
+//            playerOne = Player(name: "PlayerOne", team: [teamOne])
+//        }
+//
+//        playerOne.makeYourTeam()
+//
+//        print("Thanks know choose three characters for your team"
+//            + "\n1. the Fighter"
+//            + "\n2. The Colossus"
+//            + "\n3. The Dwarf"
+//            + "\n4. The Fairy"
+//            + "\n5. The Magus")
+//
+//        let teamTwo = readLine()
+//        if let teamTwo = teamTwo {
+//            playerTwo = Player(name: "PlayerTwo", team: [teamTwo])
+//        }
+//
+//        playerTwo.makeYourTeam()

@@ -10,26 +10,33 @@ import Foundation
 
 // Creating class Character
 
-
-class Character {
-    
-    var lifePoint: Int?
-    var name: String?
-    var maxLifePoint: Int
-    var tools: String
-    init(characterType: String, maxLifePoint: Int, tools: String) {
-    self.maxLifePoint = maxLifePoint
-    self.tools = tools
-    
-    }
-
+enum CharacterType: String {
+    case Fighter = "figther"
+    case Colossus = "Colossus"
+    case Dwarf = "Dwarf"
+    case Fairy = "fairy"
+    case Magus = "Magus"
 }
 
+class Character {
+    let type: CharacterType
+    var lifePoint = 0
+    var name: String
+    var maxLifePoint: Int
+    var tools: String
+    init(name: String, type: CharacterType, maxLifePoint: Int, tools: String) {
+        self.name = name
+        self.type = type
+        self.maxLifePoint = maxLifePoint
+        self.tools = tools
+    }
+    
+}
 // Class fighter character
 
 class Fighter: Character {
     init(){
-        super.init(characterType: "fighter", maxLifePoint: 100, tools:"sword")
+        super.init(name: "", type: .Fighter, maxLifePoint: 100, tools:"sword")
     }
 }
 
@@ -37,7 +44,7 @@ class Fighter: Character {
 
 class Colossus: Character {
     init(){
-        super.init(characterType: "Colossus", maxLifePoint: 150, tools: "mace")
+        super.init(name: "", type: .Colossus, maxLifePoint: 150, tools: "mace")
     }
 }
 
@@ -45,7 +52,7 @@ class Colossus: Character {
 
 class Dwarf: Character {
     init(){
-        super.init(characterType: "Dwarf", maxLifePoint: 120, tools: "axe")
+        super.init(name: "", type: .Dwarf, maxLifePoint: 120, tools: "axe")
     }
 }
 
@@ -53,7 +60,7 @@ class Dwarf: Character {
 
 class Fairy: Character{
     init(){
-        super.init(characterType: "Fairy", maxLifePoint: 180, tools: "Saber")
+        super.init(name: "", type: .Fairy,maxLifePoint: 180, tools: "Saber")
     }
 }
 
@@ -61,13 +68,6 @@ class Fairy: Character{
 
 class Magus: Character {
     init(){
-        super.init(characterType: "Magus", maxLifePoint: 80 , tools: "Plant")
+        super.init(name: "", type: .Magus, maxLifePoint: 80 , tools: "Plant")
     }
-    
 }
-
-
-
-
-
-
