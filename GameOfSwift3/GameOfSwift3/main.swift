@@ -10,7 +10,7 @@ import Foundation
 
 print("Hello, World!")
 var gameManager = GameManager()
-gameManager.startGame()
+gameManager.initGame()
 
 func menu() {
     print("What do you want to do?"

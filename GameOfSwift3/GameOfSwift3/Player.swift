@@ -11,15 +11,14 @@ import Foundation
 // Creation class Player
 
 class Player {
-    var team: [String]
+    var team: [Character] = []
     var numberOfCharacter = 3
-    var character = ["fighter", "Colossus", "Dwarf", "Fairy", "Magus"]
+    var characters = ["fighter", "Colossus", "Dwarf", "Fairy", "Magus"]
 //    var character = [CharacterType]()
  
     var name: String
-    init(name: String, team: [String]) {
+    init(name: String) {
         self.name = name
-        self.team = team
     }
     
     func nameYourself() {
@@ -28,15 +27,22 @@ class Player {
     
     func makeYourTeam() {
         print("Choose three characters for your team :")
-        for type in character {
+        for type in characters {
             print(type)
         }
-        let team = readLine()
-        if let team = team {
-        print("This is your team: \(team), now give names to your characters")
-            let _ = readLine()
+        for _ in 0..<numberOfCharacter {
+            if let charactername = readLine() {
+                let character = Character(name: charactername, maxLifePoint: 180, tools: "Sword")
+                team.append(character)
+            }
+        }
     }
-}
+    
+    func printTeam() {
+        for character in team {
+            print(character.name)
+        }
+    }
 }
 //
 // Créer fonction pour que le joueur choisisse un nom unique par character
