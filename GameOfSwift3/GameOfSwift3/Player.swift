@@ -22,7 +22,13 @@ class Player {
     }
     
     func nameYourself() {
-        print("Welcome \(name) !")
+        for _ in 0..<1 {
+            print("Please enter your name: ")
+            let name = readLine()
+            if let name = name {
+                print("Welcome \(name) !")
+            }
+        }
     }
     
     func makeYourTeam() {

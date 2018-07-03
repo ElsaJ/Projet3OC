@@ -21,20 +21,7 @@ class GameManager {
     
     func initGame() {
         print("Welcome to Game of Swift 3")
-        print("Player one please enter your name: ")
-        let playerOneName = readLine()
-        if let playerOneName = playerOneName {
-            playerOne = Player(name: playerOneName)
-        }
-        
         playerOne.nameYourself()
-        
-        print("Player two please enter your name: ")
-        let playerTwoName = readLine()
-        if let playerTwoName = playerTwoName {
-            playerTwo = Player(name: playerTwoName)
-        }
-        
         playerTwo.nameYourself()
         
         playerOne.makeYourTeam()
