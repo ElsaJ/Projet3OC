@@ -13,9 +13,7 @@ import Foundation
 class Player {
     var team: [Character] = []
     var numberOfCharacter = 3
-    var characters = ["fighter", "Colossus", "Dwarf", "Fairy", "Magus"]
-//    var character = [CharacterType]()
- 
+    
     var name: String
     init(name: String) {
         self.name = name
@@ -32,23 +30,67 @@ class Player {
     }
     
     func makeYourTeam() {
-        print("Choose three characters for your team :")
-        for type in characters {
-            print(type)
-        }
+        
+        // list of characters
+        
+        print("\(name), use number to choose three characters for your team, then name each one of them :"
+            + "\n \(CharacterType.Fighter.rawValue)/ Fighter"
+            + "\n \(CharacterType.Colossus.rawValue)/ Colossus"
+            + "\n \(CharacterType.Dwarf.rawValue)/ Dwarf"
+            + "\n \(CharacterType.Fairy.rawValue)/ Fairy"
+            + "\n \(CharacterType.Magus.rawValue)/ Magus")
+        
+        // character choice for each team
+        
         for _ in 0..<numberOfCharacter {
-            if let charactername = readLine() {
-                let character = Character(name: charactername, maxLifePoint: 180, tools: "Sword")
-                team.append(character)
+            print("\(name),choose your character's number:")
+            if let type = readLine(){
+                if let choice = Int(type) {
+                    switch choice {
+                    case 1:
+                        print("\(name), give him his own name: ")
+                        if let charactername = readLine() {
+                        let character = Character(name: charactername, type: .Fighter, maxLifePoint: 180, tools: "Sword")
+                        team.append(character)
+                        }
+                    case 2:
+                        print("\(name), give him his own name: ")
+                        if let charactername = readLine() {
+                        let character = Character(name: charactername, type: .Colossus, maxLifePoint: 180, tools: "Sword")
+                        team.append(character)
+                        }
+                    case 3:
+                        print("\(name), give him his own name: ")
+                        if let charactername = readLine() {
+                        let character = Character(name: charactername, type: .Dwarf, maxLifePoint: 180, tools: "Sword")
+                        team.append(character)
+                        }
+                    case 4:
+                        print("\(name), give him his own name: ")
+                        if let charactername = readLine() {
+                        let character = Character(name: charactername, type: .Fairy, maxLifePoint: 180, tools: "Sword")
+                        team.append(character)
+                        }
+                    case 5:
+                        print("\(name), give him his own name: ")
+                        if let charactername = readLine() {
+                        let character = Character(name: charactername, type: .Magus, maxLifePoint: 180, tools: "Sword")
+                        team.append(character)
+                        }
+                    default:
+                        print("I'dont understand your choice")
+                    }
+                }
             }
         }
     }
-    
-    func printTeam() {
-        for character in team {
-            print(character.name)
+        
+        func printTeam() {
+            print("\(name) this is your team:")
+            for character in team {
+                print("\(character.type) \(character.name)")
+            }
         }
-    }
 }
 //
 // Créer fonction pour que le joueur choisisse un nom unique par character

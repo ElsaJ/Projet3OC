@@ -11,11 +11,7 @@ import Foundation
 // Creating class Character
 
 enum CharacterType: Int {
-    case Fighter = 1
-    case Colossus = 2
-    case Dwarf = 3
-    case Fairy = 4
-    case Magus = 5
+    case Fighter = 1, Colossus, Dwarf, Fairy, Magus
 }
 
 class Character {
