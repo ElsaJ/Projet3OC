@@ -16,7 +16,6 @@ class GameManager {
     var playerOne = Player(name:"PlayerOne")
     var playerTwo = Player(name:"PlayerTwo")
     
-    
     // function Start the game
     
     func initGame() {
@@ -28,6 +27,8 @@ class GameManager {
         playerOne.printTeam()
         playerTwo.makeYourTeam()
         playerTwo.printTeam()
+        playerOne.resume()
+        playerTwo.resume()
         
     }
 }

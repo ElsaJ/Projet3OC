@@ -13,8 +13,9 @@ import Foundation
 class Player {
     var team: [Character] = []
     var numberOfCharacter = 3
-    
+//    var player = Player(name: "playername")
     var name: String
+    
     init(name: String) {
         self.name = name
     }
@@ -22,8 +23,8 @@ class Player {
     func nameYourself() {
         for _ in 0..<1 {
             print("Please enter your name: ")
-            let name = readLine()
-            if let name = name {
+            if let name = readLine() {
+                let player = Player(name: name)
                 print("Welcome \(name) !")
             }
         }
@@ -50,32 +51,32 @@ class Player {
                     case 1:
                         print("\(name), give him his own name: ")
                         if let charactername = readLine() {
-                        let character = Character(name: charactername, type: .Fighter, maxLifePoint: 180, tools: "Sword")
-                        team.append(character)
+                            let character = Character(name: charactername, type: .Fighter, maxLifePoint: 180, tools: "Sword")
+                            team.append(character)
                         }
                     case 2:
                         print("\(name), give him his own name: ")
                         if let charactername = readLine() {
-                        let character = Character(name: charactername, type: .Colossus, maxLifePoint: 180, tools: "Sword")
-                        team.append(character)
+                            let character = Character(name: charactername, type: .Colossus, maxLifePoint: 150, tools: "mace")
+                            team.append(character)
                         }
                     case 3:
                         print("\(name), give him his own name: ")
                         if let charactername = readLine() {
-                        let character = Character(name: charactername, type: .Dwarf, maxLifePoint: 180, tools: "Sword")
-                        team.append(character)
+                            let character = Character(name: charactername, type: .Dwarf, maxLifePoint: 120, tools: "axe")
+                            team.append(character)
                         }
                     case 4:
                         print("\(name), give him his own name: ")
                         if let charactername = readLine() {
-                        let character = Character(name: charactername, type: .Fairy, maxLifePoint: 180, tools: "Sword")
-                        team.append(character)
+                            let character = Character(name: charactername, type: .Fairy, maxLifePoint: 100, tools: "Saber")
+                            team.append(character)
                         }
                     case 5:
                         print("\(name), give him his own name: ")
                         if let charactername = readLine() {
-                        let character = Character(name: charactername, type: .Magus, maxLifePoint: 180, tools: "Sword")
-                        team.append(character)
+                            let character = Character(name: charactername, type: .Magus, maxLifePoint: 80, tools: "Plant")
+                            team.append(character)
                         }
                     default:
                         print("I'dont understand your choice")
@@ -84,14 +85,23 @@ class Player {
             }
         }
     }
-        
-        func printTeam() {
-            print("\(name) this is your team:")
-            for character in team {
-                print("\(character.type) \(character.name)")
-            }
+    
+    func printTeam() {
+        print("\(name) this is your team:")
+        for character in team {
+            print("\(character.type) \(character.name) who start with \(character.maxLifePoint) lifepoints and \(character.tools) in his hand")
         }
+    }
+    
+    func resume(){
+                print(self.name)
+       
+        }
+
 }
+
+
+
 //
 // Créer fonction pour que le joueur choisisse un nom unique par character
 // Donner la liste des personnages de l'équipe adverse avec les propriétés utiles
