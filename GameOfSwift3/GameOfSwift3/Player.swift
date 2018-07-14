@@ -13,7 +13,6 @@ import Foundation
 class Player {
     var team: [Character] = []
     var numberOfCharacter = 3
-//    var player = Player(name: "playername")
     var name: String
     
     init(name: String) {
@@ -24,8 +23,8 @@ class Player {
         for _ in 0..<1 {
             print("Please enter your name: ")
             if let name = readLine() {
-                let player = Player(name: name)
                 print("Welcome \(name) !")
+                self.name = name
             }
         }
     }
@@ -42,6 +41,7 @@ class Player {
             + "\n \(CharacterType.Magus.rawValue)/ Magus")
         
         // character choice for each team
+        
         
         for _ in 0..<numberOfCharacter {
             print("\(name),choose your character's number:")
@@ -94,7 +94,7 @@ class Player {
     }
     
     func resume(){
-                print(self.name)
+                print(name)
        
         }
 
