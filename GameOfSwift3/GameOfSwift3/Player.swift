@@ -63,9 +63,12 @@ class Player {
         if let charactername = readLine(){
             let character = Character(name: charactername, type: .Fighter, maxLifePoint: 180, tools: "sword")
         }
+        
         return Character(name: "", type: .Fighter, maxLifePoint: 180, tools: "sword")
     }
 
+   
+    
     
     func makeYourTeam(){
         print("\(name), now make your team !")
@@ -75,6 +78,7 @@ class Player {
             team.append(character)
         }
     }
+
     
     func printTeam() {
         print("\(name) this is your team:")
