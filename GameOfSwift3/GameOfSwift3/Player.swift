@@ -54,11 +54,11 @@ class Player {
     private func showList() {
         
         print("This is the list of characters available :"
-            + "\n \(CharacterType.Fighter.rawValue)"
-            + "\n \(CharacterType.Colossus.rawValue)"
-            + "\n \(CharacterType.Dwarf.rawValue)"
-            + "\n \(CharacterType.Fairy.rawValue)"
-            + "\n \(CharacterType.Magus.rawValue)")
+            + "\n \(CharacterType.Fighter.rawValue)/ Fighter"
+            + "\n \(CharacterType.Colossus.rawValue)/ Colossus"
+            + "\n \(CharacterType.Dwarf.rawValue)/ Dwarf"
+            + "\n \(CharacterType.Fairy.rawValue)/ Fairy"
+            + "\n \(CharacterType.Magus.rawValue)/ Magus")
     }
     
     private func characterChoice() -> Character {
@@ -69,18 +69,25 @@ class Player {
     }
     
     private func chooseCharacterType() -> CharacterType {
-        if let characterTypeString = readLine() {
-            if let typeRawValue = Int(characterTypeString) {
-                if let characterType = CharacterType(rawValue: typeRawValue) {
-                    return characterType
+        var choice = 0
+        while choice <= 5 {
+                if let characterTypeString = readLine() {
+                    if let typeRawValue = Int(characterTypeString) {
+                        if let characterType = CharacterType(rawValue: typeRawValue) {
+                            return characterType
+                        }
+                    }
                 }
             }
-        }
+
         return CharacterType.Fighter
     }
     
     private func chooseCharacterName() -> String {
+        if let characterName = readLine(){
+            let character = Character(name: characterName, type: .Fighter, maxLifePoint: 180, tools: "Sword")
+            return characterName
+        }
         return "Jo"
     }
-    
 }
