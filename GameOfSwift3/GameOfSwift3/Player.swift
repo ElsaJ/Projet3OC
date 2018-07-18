@@ -62,15 +62,15 @@ class Player {
     }
     
     private func characterChoice() -> Character {
-        var characterType = chooseCharacterType()
-        var characterName = chooseCharacterName()
+        let characterType = chooseCharacterType()
+        let characterName = chooseCharacterName()
+        var characterLifePoint = getLifePoint(type: characterType)
         
-        return Character(name: characterName, type: characterType, maxLifePoint: 180, tools: "sword")
+        return Character(name: characterName, type: characterType, maxLifePoint: characterLifePoint, tools: "sword")
     }
     
     private func chooseCharacterType() -> CharacterType {
-        var choice = 0
-        while choice <= 5 {
+        print("Use number to choose three Characters for your team:")
                 if let characterTypeString = readLine() {
                     if let typeRawValue = Int(characterTypeString) {
                         if let characterType = CharacterType(rawValue: typeRawValue) {
@@ -78,16 +78,29 @@ class Player {
                         }
                     }
                 }
-            }
 
         return CharacterType.Fighter
     }
     
     private func chooseCharacterName() -> String {
+        print("Now give him his own name : ")
         if let characterName = readLine(){
             let character = Character(name: characterName, type: .Fighter, maxLifePoint: 180, tools: "Sword")
             return characterName
         }
         return "Jo"
     }
+    
+    private func getLifePoint(type: CharacterType) -> Int {
+            switch type {
+            case .Fighter: 100
+            case .Colossus: 150
+            case .Dwarf: 120
+            case .Fairy: 180
+            case .Magus: 80
+                
+            }
+         return 150
+        }
+    
 }
