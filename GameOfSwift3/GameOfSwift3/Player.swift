@@ -64,9 +64,10 @@ class Player {
     private func characterChoice() -> Character {
         let characterType = chooseCharacterType()
         let characterName = chooseCharacterName()
-        var characterLifePoint = getLifePoint(type: characterType)
+        let characterLifePoint = getLifePoint(type: characterType)
+        let characterTools = getTools(type: characterType)
         
-        return Character(name: characterName, type: characterType, maxLifePoint: characterLifePoint, tools: "sword")
+        return Character(name: characterName, type: characterType, maxLifePoint: characterLifePoint, tools: characterTools)
     }
     
     private func chooseCharacterType() -> CharacterType {
@@ -93,14 +94,32 @@ class Player {
     
     private func getLifePoint(type: CharacterType) -> Int {
             switch type {
-            case .Fighter: 100
-            case .Colossus: 150
-            case .Dwarf: 120
-            case .Fairy: 180
-            case .Magus: 80
-                
+            case .Fighter:
+                return 100
+            case .Colossus:
+                return 150
+            case .Dwarf:
+                return 120
+            case .Fairy:
+               return 180
+            case .Magus:
+                return 80
             }
-         return 150
         }
+    
+    private func getTools(type: CharacterType) -> String {
+        switch type {
+        case .Fighter:
+           return ("Sword")
+        case .Colossus:
+           return ("Mace")
+        case .Dwarf:
+           return ("Axe")
+        case .Fairy:
+            return ("Saber")
+        case .Magus:
+           return ("Plant")
+        }
+    }
     
 }
