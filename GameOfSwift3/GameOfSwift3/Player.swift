@@ -71,17 +71,27 @@ class Player {
     }
     
     private func chooseCharacterType() -> CharacterType {
-        print("Use number to choose three Characters for your team:")
-                if let characterTypeString = readLine() {
-                    if let typeRawValue = Int(characterTypeString) {
-                        if let characterType = CharacterType(rawValue: typeRawValue) {
-                            return characterType
-                        }
+        var typeRawValue = 7
+        while typeRawValue > 6 {
+            
+            print("Use number to choose character for your team:")
+            if let characterTypeString = readLine() {
+                if let typeRawValue = Int(characterTypeString) {
+                    if typeRawValue > 0 && typeRawValue < 6 {
+                    } else {
+                        print("You have to choose number beetween one to five, try again :")
+                    }
+                    if let characterType = CharacterType(rawValue: typeRawValue) {
+                        return characterType
                     }
                 }
-
+            }
+        }
         return CharacterType.Fighter
     }
+    
+   
+
     
     private func chooseCharacterName() -> String {
         print("Now give him his own name : ")
@@ -93,32 +103,32 @@ class Player {
     }
     
     private func getLifePoint(type: CharacterType) -> Int {
-            switch type {
-            case .Fighter:
-                return 100
-            case .Colossus:
-                return 150
-            case .Dwarf:
-                return 120
-            case .Fairy:
-               return 180
-            case .Magus:
-                return 80
-            }
+        switch type {
+        case .Fighter:
+            return 100
+        case .Colossus:
+            return 150
+        case .Dwarf:
+            return 120
+        case .Fairy:
+            return 180
+        case .Magus:
+            return 80
         }
+    }
     
     private func getTools(type: CharacterType) -> String {
         switch type {
         case .Fighter:
-           return ("Sword")
+            return ("Sword")
         case .Colossus:
-           return ("Mace")
+            return ("Mace")
         case .Dwarf:
-           return ("Axe")
+            return ("Axe")
         case .Fairy:
             return ("Saber")
         case .Magus:
-           return ("Plant")
+            return ("Plant")
         }
     }
     
