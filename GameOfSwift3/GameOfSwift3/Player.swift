@@ -13,11 +13,7 @@ import Foundation
 class Player {
     var team: [Character] = []
     var numberOfCharacter = 3
-    var name: String
-    
-    init(name: String) {
-        self.name = name
-    }
+    var name = ""
     
     func nameYourself() {
         for _ in 0..<1 {
@@ -37,18 +33,12 @@ class Player {
             team.append(character)
         }
     }
-
     
-    func printTeam() {
+    func resume() {
         print("\(name) this is your team:")
         for character in team {
             print("\(character.type) \(character.name) who start with \(character.maxLifePoint) lifepoints and \(character.tools) in his hand")
         }
-    }
-    
-    func resume(){
-        print(name)
-        
     }
     
     private func showList() {
@@ -71,35 +61,25 @@ class Player {
     }
     
     private func chooseCharacterType() -> CharacterType {
-        var typeRawValue = 7
-        while typeRawValue > 6 {
-            
-            print("Use number to choose character for your team:")
-            if let characterTypeString = readLine() {
-                if let typeRawValue = Int(characterTypeString) {
-                    if typeRawValue > 0 && typeRawValue < 6 {
-                    } else {
-                        print("You have to choose number beetween one to five, try again :")
-                    }
-                    if let characterType = CharacterType(rawValue: typeRawValue) {
-                        return characterType
-                    }
-                }
-            }
+        print("Use number to choose character for your team:")
+        if let characterTypeString = readLine(),
+            let typeRawValue = Int(characterTypeString),
+            let characterType = CharacterType(rawValue: typeRawValue) {
+            return characterType
+        } else {
+            print("You have to choose number beetween one to five, try again:")
+            return chooseCharacterType()
         }
-        return CharacterType.Fighter
     }
-    
-   
-
     
     private func chooseCharacterName() -> String {
         print("Now give him his own name : ")
-        if let characterName = readLine(){
-            let character = Character(name: characterName, type: .Fighter, maxLifePoint: 180, tools: "Sword")
+        if let characterName = readLine() {
             return characterName
+        } else {
+            print("Error in naming, try again:")
+            return chooseCharacterName()
         }
-        return "Jo"
     }
     
     private func getLifePoint(type: CharacterType) -> Int {
