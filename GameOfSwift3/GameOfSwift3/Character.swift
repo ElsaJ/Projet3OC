@@ -10,8 +10,12 @@ import Foundation
 
 // Creating class Character
 
-enum CharacterType: String {
-    case Fighter = "Fighter", Colossus, Dwarf, Fairy, Magus
+enum CharacterType: Int {
+    case Fighter = 1
+    case Colossus 
+    case Dwarf
+    case Fairy
+    case Magus
 }
 
 class Character {
