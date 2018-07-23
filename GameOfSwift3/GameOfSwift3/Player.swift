@@ -16,14 +16,16 @@ private var numberOfCharacter = 3
 private var name = ""
     
     func nameYourself() {
-        for _ in 0..<1 {
-            print("Please enter your name: ")
-            if let name = readLine() {
-                print("Welcome \(name) !")
-                self.name = name
-            }
+        print("Please enter your name: ")
+        if let name = readLine() {
+            print("Welcome \(name) !")
+            self.name = name
+        } else {
+            print("error in naming, try again:")
+            nameYourself()
         }
     }
+    
     
     func makeYourTeam(){
         print("\(name), now make your team !")
