@@ -11,9 +11,9 @@ import Foundation
 // Creation class Player
 
 class Player {
-    var team: [Character] = []
-    var numberOfCharacter = 3
-    var name = ""
+private var team: [Character] = []
+private var numberOfCharacter = 3
+private var name = ""
     
     func nameYourself() {
         for _ in 0..<1 {
