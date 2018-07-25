@@ -11,12 +11,12 @@ import Foundation
 // Creation class Player
 
 class Player {
-private var team: [Character] = []
-private var numberOfCharacter = 3
-private var name = ""
+    private var team: [Character] = []
+    private var numberOfCharacter = 3
+    private var name = ""
     
     func nameYourself() {
-        print("Please enter your name: ")
+        print("Hello player, please enter your name: ")
         if let name = readLine() {
             print("Welcome \(name) !")
             self.name = name
@@ -28,7 +28,7 @@ private var name = ""
     
     
     func makeYourTeam(){
-        print("\(name), now make your team !")
+        print("Now make your team !")
         showList()
         while team.count < numberOfCharacter {
             let character = characterChoice()
@@ -75,14 +75,77 @@ private var name = ""
     }
     
     private func chooseCharacterName() -> String {
-        print("Now give him his own name : ")
+        print("Now give him his own name:")
         if let characterName = readLine() {
-            return characterName
+            if nameIsUnique(chosenCharacterName: characterName) == false {
+                return characterName
+            } else {
+                print("error in naming")
+                 return chooseCharacterName()
+            }
+        }
+        return "JO"
+    }
+    
+    private func nameIsUnique(chosenCharacterName: String) -> Bool {
+        var chosenName = [String]()
+        if chosenName.contains(chosenCharacterName) {
+            print(" Name already exist")
+            return true
         } else {
-            print("Error in naming, try again:")
-            return chooseCharacterName()
+            chosenName.append(chosenCharacterName)
+            return false
         }
     }
+    
+//    private func chooseCharacterName() -> String {
+//        var chosenNames = [String]()
+//        print("Now give him is own name:")
+//        if let characterName = readLine() {
+//            let nameAlreadyExist = chosenNames.contains(where: {(str) -> Bool in if
+//                str == characterName {
+//                return true
+//                }
+//                return false
+//            })
+//            if nameAlreadyExist == true {
+//                print("Name already exist")
+//                return chooseCharacterName()
+//            } else {
+//                chosenNames.append(characterName)
+//                return characterName
+//            }
+//        }
+//        return "Jo"
+//    }
+    
+//    private func chooseCharacterName() -> String {
+//        print("Now give him his own name : ")
+//        var characterName = ""
+//        nameIsUnique(chosenCharacterName: characterName)
+//        if characterName == "" {
+//                return characterName
+//            } else {
+//                print("Error in naming, try again:")
+//            }
+//         return chooseCharacterName()
+//    }
+//
+//    private func nameIsUnique(chosenCharacterName: String) -> Bool {
+//        var chosenName = [String]()
+//        var choice == ""
+//        if let chosenCharacterName = readLine(){
+//            if chosenName.contains(chosenCharacterName) {
+//                print("name already exist")
+//                return true
+//            } else {
+//                chosenName.append(chosenCharacterName)
+//                return false
+//            }
+//        }
+//
+//        return choice
+//    }
     
     private func getLifePoint(type: CharacterType) -> Int {
         switch type {
