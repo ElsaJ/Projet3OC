@@ -31,6 +31,15 @@ class Character {
         self.tools = tools
     }
     
+    func isAlive() -> Bool {
+        if lifePoint < 1 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    
 }
 // Class fighter character
 
