@@ -9,6 +9,8 @@
 import Foundation
 
 class Weapons {
+    var name: String
+    var damages: Int
     init(name: String, damages: Int) {
         self.name = name
         self.damages = damages

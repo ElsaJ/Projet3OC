@@ -33,14 +33,14 @@ class Character {
     
     func isAlive() -> Bool {
         if lifePoint < 1 {
+            print("You are dead")
             return false
         } else {
             return true
         }
     }
-    
-    
 }
+
 // Class fighter character
 
 class Fighter: Character {

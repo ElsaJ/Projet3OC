@@ -32,4 +32,18 @@ class Player {
             print("\(character.type) \(character.name) who start with \(character.maxLifePoint) lifepoints and \(character.tools) in his hand")
         }
     }
+    
+    func isTeamAlive() -> Bool {
+        var aliveOrNot = true
+        for character in team {
+            if character.isAlive() == true {
+                aliveOrNot = true
+            } else {
+                print("Game over")
+                aliveOrNot = false
+            }
+        }
+        return aliveOrNot
+    }
+    
 }
