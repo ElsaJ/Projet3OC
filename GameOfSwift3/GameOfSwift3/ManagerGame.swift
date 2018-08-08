@@ -31,14 +31,16 @@ class GameManager {
     }
     
     func startGame() {
+        fight()
+       
+    }
+    
+    func fight() {
         print("Choose character to attack your opponent or character you want to treat")
         let attacker = playerOne.chooseCharacter()
         print("choose ennemy to attack or Magus to treat")
         let attacked = playerTwo.chooseCharacter()
         
-    }
-    
-    func fight() {
         
     }
     

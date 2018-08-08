@@ -47,6 +47,23 @@ class Player {
         }
     }
     
+    func damages(type: Weapons) -> Int {
+        switch type {
+        case is Sword:
+            return 10
+        case is Mace:
+            return 5
+        case is Axe:
+            return 7
+        case is Saber:
+            return 6
+        case is Plant:
+            return 15
+        default:
+            return 0
+        }
+    }
+    
     
     func isTeamAlive() -> Bool {
         let isTeamAlive = team.contains { character in character.isAlive()}
