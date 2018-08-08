@@ -8,9 +8,9 @@
 
 import Foundation
 
-print("Hello, World!")
 var gameManager = GameManager()
 gameManager.initGame()
+gameManager.startGame()
 
 func menu() {
     print("What do you want to do?"

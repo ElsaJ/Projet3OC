@@ -30,6 +30,18 @@ class GameManager {
         playerTwo.resume()
     }
     
+    func startGame() {
+        print("Choose character to attack your opponent or character you want to treat")
+        let attacker = playerOne.chooseCharacter()
+        print("choose ennemy to attack or Magus to treat")
+        let attacked = playerTwo.chooseCharacter()
+        
+    }
+    
+    func fight() {
+        
+    }
+    
     func createTeam() -> [Character] {
         var team = [Character]()
         print("Now make your team !")

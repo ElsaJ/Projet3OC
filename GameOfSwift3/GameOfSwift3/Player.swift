@@ -33,17 +33,28 @@ class Player {
         }
     }
     
-    func isTeamAlive() -> Bool {
-        var aliveOrNot = true
-        for character in team {
-            if character.isAlive() == true {
-                aliveOrNot = true
+    func chooseCharacter() -> Character {
+        for (index, character) in team.enumerated() {
+            print("\(index): \(character.name) the \(character.type)") }
+            print("use number to choose your character")
+            if let choice = readLine(),
+                choice != "",
+                let indexChoice = Int(choice) {
+                let characterChoice = team[indexChoice]
+                return team[indexChoice]
             } else {
-                print("Game over")
-                aliveOrNot = false
-            }
+                return chooseCharacter()
         }
-        return aliveOrNot
     }
     
+    
+    func isTeamAlive() -> Bool {
+        let isTeamAlive = team.contains { character in character.isAlive()}
+        if isTeamAlive == true {
+            return true
+        } else {
+            print("Game Over")
+            return false
+        }
+    }
 }
