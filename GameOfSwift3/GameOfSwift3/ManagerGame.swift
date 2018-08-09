@@ -40,7 +40,9 @@ class GameManager {
         let attacker = playerOne.chooseCharacter()
         print("choose ennemy to attack or Magus to treat")
         let attacked = playerTwo.chooseCharacter()
-        
+        let damages = attacker.damages()
+        attacked.lifePoint = attacked.maxLifePoint - damages
+        print(attacked.lifePoint)
         
     }
     
@@ -125,18 +127,18 @@ class GameManager {
         }
     }
     
-    private func getTools(type: CharacterType) -> String {
+    private func getTools(type: CharacterType) -> Weapons {
         switch type {
         case .Fighter:
-            return ("Sword")
+            return Sword()
         case .Colossus:
-            return ("Mace")
+            return Mace()
         case .Dwarf:
-            return ("Axe")
+            return Axe()
         case .Fairy:
-            return ("Saber")
+            return Saber()
         case .Magus:
-            return ("Plant")
+            return Plant()
         }
     }
 }

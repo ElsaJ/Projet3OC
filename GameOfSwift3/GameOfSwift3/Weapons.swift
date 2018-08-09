@@ -9,11 +9,11 @@
 import Foundation
 
 class Weapons {
-    var name: String
     var damages: Int
+    var name: String
     init(name: String, damages: Int) {
-        self.name = name
         self.damages = damages
+        self.name = name
     }
 }
 
@@ -22,6 +22,7 @@ class Sword: Weapons {
         super.init(name: "sword", damages: 10)
     }
 }
+
 
 class Mace: Weapons {
     init() {

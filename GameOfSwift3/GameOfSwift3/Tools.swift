@@ -6,19 +6,19 @@
 //  Copyright © 2018 Elsa Jeannin. All rights reserved.
 //
 
-import Foundation
-
-enum objects: String{
-    case sword = "sword"
-    case mace = "mace"
-    case axe = "axe"
-    case saber = "saber"
-    case plant = "plant"
-}
-
-class Tools {
-    var name: objects
-    init(name: objects) {
-        self.name = name
-    }
-}
+//import Foundation
+//
+//enum objects: String{
+//    case sword = "sword"
+//    case mace = "mace"
+//    case axe = "axe"
+//    case saber = "saber"
+//    case plant = "plant"
+//}
+//
+//class Tools {
+//    var name: objects
+//    init(name: objects) {
+//        self.name = name
+//    }
+//}
