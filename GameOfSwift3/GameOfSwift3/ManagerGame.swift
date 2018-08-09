@@ -42,7 +42,7 @@ class GameManager {
         let attacked = playerTwo.chooseCharacter()
         let damages = attacker.damages()
         attacked.lifePoint = attacked.maxLifePoint - damages
-        print(attacked.lifePoint)
+        print("\(attacker.name) take \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints")
         
     }
     
