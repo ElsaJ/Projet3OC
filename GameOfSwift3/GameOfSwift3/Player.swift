@@ -46,7 +46,6 @@ class Player {
                 return chooseCharacter()
         }
     }
-
     
     func isTeamAlive() -> Bool {
         let isTeamAlive = team.contains { character in character.isAlive()}
@@ -57,4 +56,5 @@ class Player {
             return false
         }
     }
+
 }

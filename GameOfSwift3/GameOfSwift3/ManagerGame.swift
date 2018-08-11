@@ -15,7 +15,7 @@ class GameManager {
     private var playerOne = Player()
     private var playerTwo = Player()
     private var chosenNames = [String] ()
-    
+
     // function Start the game
     
     func initGame() {
@@ -31,8 +31,8 @@ class GameManager {
     }
     
     func startGame() {
-        fight()
-       
+            fight()
+        
     }
     
     func fight() {
@@ -40,10 +40,14 @@ class GameManager {
         let attacker = playerOne.chooseCharacter()
         print("choose ennemy to attack or Magus to treat")
         let attacked = playerTwo.chooseCharacter()
+        attacked.lifePoint = attacked.maxLifePoint
         let damages = attacker.damages()
         attacked.lifePoint = attacked.maxLifePoint - damages
         print("\(attacker.name) take \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints")
         
+        while attacked.isAlive() == true {
+            return fight()
+        }
     }
     
     func createTeam() -> [Character] {
@@ -57,6 +61,7 @@ class GameManager {
         
         return team
     }
+    
     
     private func showList() {
         

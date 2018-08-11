@@ -19,15 +19,17 @@ enum CharacterType: Int {
 }
 
 class Character {
-    var lifePoint = 0
+    
     var name: String
     var maxLifePoint: Int
+    var lifePoint: Int
     var tools: Weapons
     var type: CharacterType
-    init(name: String, type: CharacterType, maxLifePoint: Int, tools: Weapons) {
+    init(name: String, type: CharacterType, maxLifePoint: Int, lifePoint: Int, tools: Weapons) {
         self.name = name
         self.type = type
         self.maxLifePoint = maxLifePoint
+        self.lifePoint = lifePoint
         self.tools = tools
     }
     
@@ -40,24 +42,7 @@ class Character {
         }
     }
     
-//    func damages() -> Int {
-//        switch type {
-//        case is Fighter:
-//            return 10
-//        case is Colossus:
-//            return 5
-//        case is Dwarf:
-//            return 7
-//        case is Fairy:
-//            return 6
-//        case is Magus:
-//            return 15
-//        default:
-//            return 0
-//        }
-//    }
-    
-        func damages() -> Int {
+    func damages() -> Int {
             switch tools {
             case is Sword:
                 return 10
@@ -73,14 +58,13 @@ class Character {
                 return 0
             }
         }
-    
 }
 
 // Class fighter character
 
 class Fighter: Character {
     init(){
-        super.init(name: "", type: .Fighter, maxLifePoint: 100, tools: Sword())
+        super.init(name: "", type: .Fighter, maxLifePoint: 100, lifePoint: 100, tools: Sword())
     }
 }
 
@@ -88,7 +72,7 @@ class Fighter: Character {
 
 class Colossus: Character {
     init(){
-        super.init(name: "", type: .Colossus, maxLifePoint: 150, tools: Mace())
+        super.init(name: "", type: .Colossus, maxLifePoint: 150, lifePoint: 150, tools: Mace())
     }
 }
 
@@ -96,7 +80,7 @@ class Colossus: Character {
 
 class Dwarf: Character {
     init(){
-        super.init(name: "", type: .Dwarf, maxLifePoint: 120, tools: Axe())
+        super.init(name: "", type: .Dwarf, maxLifePoint: 120, lifePoint: 120, tools: Axe())
     }
 }
 
@@ -104,7 +88,7 @@ class Dwarf: Character {
 
 class Fairy: Character{
     init(){
-        super.init(name: "", type: .Fairy, maxLifePoint: 180, tools: Saber())
+        super.init(name: "", type: .Fairy, maxLifePoint: 180, lifePoint: 180, tools: Saber())
     }
 }
 
@@ -112,6 +96,6 @@ class Fairy: Character{
 
 class Magus: Character {
     init(){
-        super.init(name: "", type: .Magus, maxLifePoint: 80 , tools: Plant())
+        super.init(name: "", type: .Magus, maxLifePoint: 80 , lifePoint: 80, tools: Plant())
     }
 }
