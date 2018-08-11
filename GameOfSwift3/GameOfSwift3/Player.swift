@@ -26,14 +26,14 @@ class Player {
         }
     }
     
-    func resume() {
+     func resume() {
         print("\(name)'s team:")
         for character in team {
             print("\(character.type) \(character.name) who start with \(character.maxLifePoint) lifepoints and \(character.tools) in his hand")
         }
     }
     
-    func chooseCharacter() -> Character {
+        func chooseCharacter() -> Character {
         for (index, character) in team.enumerated() {
             print("\(index): \(character.name) the \(character.type)") }
             print("use number to choose your character")
@@ -47,7 +47,7 @@ class Player {
         }
     }
     
-    func isTeamAlive() -> Bool {
+        func isTeamAlive() -> Bool {
         let isTeamAlive = team.contains { character in character.isAlive()}
         if isTeamAlive == true {
             return true
