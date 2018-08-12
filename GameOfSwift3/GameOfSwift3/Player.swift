@@ -39,7 +39,9 @@ class Player {
             print("use number to choose your character")
             if let choice = readLine(),
                 choice != "",
-                let indexChoice = Int(choice) {
+                let indexChoice = Int(choice),
+                indexChoice >= 0,
+                indexChoice < team.count {
                 let characterChoice = team[indexChoice]
                 return team[indexChoice]
             } else {

@@ -35,7 +35,6 @@ class Character {
     
     func isAlive() -> Bool {
         if lifePoint < 1 {
-            print("You are dead")
             return false
         } else {
             return true
@@ -45,7 +44,7 @@ class Character {
     func damages() -> Int {
             switch tools {
             case is Sword:
-                return 10
+                return 1000
             case is Mace:
                 return 5
             case is Axe:

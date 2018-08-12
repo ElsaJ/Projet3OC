@@ -31,20 +31,23 @@ class GameManager {
     }
     
     func startGame() {
+        var attackerPlayer = playerOne
+        var attackedPlayer = playerTwo
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
-            fight()
+            print("Choose character to attack your opponent or character you want to treat")
+            let attacker = attackerPlayer.chooseCharacter()
+            print("choose ennemy to attack or Magus to treat")
+            let attacked = attackedPlayer.chooseCharacter()
+            fight(attacker: attacker, attacked: attacked)
+            swap(&attackerPlayer, &attackedPlayer)
         }
         
     }
     
-    func fight() {
-        print("Choose character to attack your opponent or character you want to treat")
-        let attacker = playerOne.chooseCharacter()
-        print("choose ennemy to attack or Magus to treat")
-        let attacked = playerTwo.chooseCharacter()
+    func fight(attacker: Character, attacked: Character) {
         let damages = attacker.damages()
         attacked.lifePoint -= damages
-        print("\(attacker.name) take \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints")
+        print("\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints")
 
     }
     
