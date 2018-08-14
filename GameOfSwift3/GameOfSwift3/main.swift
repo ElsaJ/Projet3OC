@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 var gameManager = GameManager()
 gameManager.initGame()
 gameManager.startGame()

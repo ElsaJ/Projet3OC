@@ -15,10 +15,10 @@ class Player {
     private var name = ""
     
     func nameYourself() {
-        print("Hello player, please enter your name: ")
+        print("\n Hello player, please enter your name: ")
         if let name = readLine(),
             name != "" {
-            print("Welcome \(name) !")
+            print(" Welcome \(name) !\n")
             self.name = name
         } else  {
             print("error in naming, try again:")
@@ -27,16 +27,21 @@ class Player {
     }
     
      func resume() {
-        print("\(name)'s team:")
+        print("\n \(name)'s team:")
         for character in team {
-            print("\(character.type) \(character.name) who start with \(character.maxLifePoint) lifepoints and \(character.tools) in his hand")
+            print("\n\(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.tools.name) in his hand")
         }
     }
     
-        func chooseCharacter() -> Character {
+    func showTeam() {
         for (index, character) in team.enumerated() {
-            print("\(index): \(character.name) the \(character.type)") }
-            print("use number to choose your character")
+            if character.lifePoint > 0 {
+                print("\n\(index): \(character.name) the \(character.type): \(character.lifePoint) 💜, \(character.tools.name)")}
+        }
+    }
+    
+    func chooseCharacter() -> Character {
+            print("\nChoice:")
             if let choice = readLine(),
                 choice != "",
                 let indexChoice = Int(choice),
@@ -45,9 +50,14 @@ class Player {
                 let characterChoice = team[indexChoice]
                 return team[indexChoice]
             } else {
+                print("You have to choose number")
                 return chooseCharacter()
+            }
         }
-    }
+     
+
+    
+
     
         func isTeamAlive() -> Bool {
         let isTeamAlive = team.contains { character in character.isAlive()}

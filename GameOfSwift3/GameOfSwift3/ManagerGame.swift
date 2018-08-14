@@ -19,7 +19,8 @@ class GameManager {
     // function Start the game
     
     func initGame() {
-        print("Welcome to Game of Swift 3")
+        
+        print("\n ⚔︎💪🏼⚔︎ WELCOME TO GAME OF SWIFT III ⚔︎💪🏼⚔︎")
         playerOne.nameYourself()
         let team1 = createTeam()
         playerOne.team = team1
@@ -34,9 +35,12 @@ class GameManager {
         var attackerPlayer = playerOne
         var attackedPlayer = playerTwo
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
-            print("Choose character to attack your opponent or character you want to treat")
+            print("\n  LET THE FIGHT BEGIN !!!\n")
+            print("\n Use number to choose character for the attack or character you want to treat")
+            attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
-            print("choose ennemy to attack or Magus to treat")
+            print("\nchoose ennemy to attack or Magus to treat")
+            attackedPlayer.showTeam()
             let attacked = attackedPlayer.chooseCharacter()
             fight(attacker: attacker, attacked: attacked)
             swap(&attackerPlayer, &attackedPlayer)
@@ -45,15 +49,20 @@ class GameManager {
     }
     
     func fight(attacker: Character, attacked: Character) {
+        if attacked.lifePoint > 0 && attacked.lifePoint > attacker.damages() {
         let damages = attacker.damages()
         attacked.lifePoint -= damages
-        print("\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints")
+        print("\n \(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints\n")
+        } else {
+           attacked.lifePoint = 0
+        print("\n☠️ \(attacked.name) is dead ☠️")
+        }
 
     }
     
     func createTeam() -> [Character] {
         var team = [Character]()
-        print("Now make your team !")
+        print(" Now make your team !\n")
         showList()
         while team.count < numberOfCharacter {
             let character = characterChoice()
@@ -66,12 +75,12 @@ class GameManager {
     
     private func showList() {
         
-        print("This is the list of characters available :"
-            + "\n \(CharacterType.Fighter.rawValue)/ Fighter"
-            + "\n \(CharacterType.Colossus.rawValue)/ Colossus"
-            + "\n \(CharacterType.Dwarf.rawValue)/ Dwarf"
-            + "\n \(CharacterType.Fairy.rawValue)/ Fairy"
-            + "\n \(CharacterType.Magus.rawValue)/ Magus")
+        print("This is the list of characters available :\n"
+            + "\n \(CharacterType.Fighter.rawValue)/ Fighter 🥊"
+            + "\n \(CharacterType.Colossus.rawValue)/ Colossus 💪🏼"
+            + "\n \(CharacterType.Dwarf.rawValue)/ Dwarf 🧝🏼‍♂️"
+            + "\n \(CharacterType.Fairy.rawValue)/ Fairy 🧚🏼‍♂️"
+            + "\n \(CharacterType.Magus.rawValue)/ Magus 🧙🏽‍♂️")
     }
     
     private func characterChoice() -> Character {
@@ -85,7 +94,7 @@ class GameManager {
     }
     
     private func chooseCharacterType() -> CharacterType {
-        print("Use number to choose character for your team:")
+        print("\nUse number to choose character for your team:\n")
         if let characterTypeString = readLine(),
             let typeRawValue = Int(characterTypeString),
             let characterType = CharacterType(rawValue: typeRawValue) {
@@ -97,8 +106,9 @@ class GameManager {
     }
     
     private func chooseCharacterName() -> String {
-        print("Now give him his own name:")
+        print("\nNow give him his own name:\n")
         if let characterName = readLine(),
+            characterName != "",
             nameIsUnique(chosenCharacterName: characterName) == false {
             chosenNames.append(characterName)
             return characterName
