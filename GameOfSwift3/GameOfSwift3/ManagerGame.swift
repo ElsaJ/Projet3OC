@@ -15,12 +15,14 @@ class GameManager {
     private var playerOne = Player()
     private var playerTwo = Player()
     private var chosenNames = [String] ()
+    private var numberOfTurn = 0
 
     // function Start the game
     
     func initGame() {
-        
-        print("\n ⚔︎💪🏼⚔︎ WELCOME TO GAME OF SWIFT III ⚔︎💪🏼⚔︎")
+        print("\n💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼")
+        print("  💪🏼⚔︎💪🏼⚔︎ WELCOME TO GAME OF SWIFT III ⚔︎💪🏼⚔︎💪🏼")
+        print("💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼\n")
         playerOne.nameYourself()
         let team1 = createTeam()
         playerOne.team = team1
@@ -34,8 +36,10 @@ class GameManager {
     func startGame() {
         var attackerPlayer = playerOne
         var attackedPlayer = playerTwo
+        print("\n🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        print("🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊")
+        print("🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
-            print("\n  LET THE FIGHT BEGIN !!!\n")
             print("\n Use number to choose character for the attack or character you want to treat")
             attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
@@ -44,15 +48,26 @@ class GameManager {
             let attacked = attackedPlayer.chooseCharacter()
             fight(attacker: attacker, attacked: attacked)
             swap(&attackerPlayer, &attackedPlayer)
+            numberOfTurn += 1
         }
-        
     }
+    
+    func endOfTheGame() {
+    print("\n🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+    print("🥊🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊🥊")
+    print("🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+       playerOne.winner()
+       playerTwo.winner()
+        }
+
     
     func fight(attacker: Character, attacked: Character) {
         if attacked.lifePoint > 0 && attacked.lifePoint > attacker.damages() {
         let damages = attacker.damages()
         attacked.lifePoint -= damages
-        print("\n \(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints\n")
+        print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶")
+        print("🔵🔶\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints🔵🔶")
+        print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶\n")
         } else {
            attacked.lifePoint = 0
         print("\n☠️ \(attacked.name) is dead ☠️")

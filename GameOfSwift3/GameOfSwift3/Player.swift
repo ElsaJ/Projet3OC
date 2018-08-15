@@ -41,31 +41,34 @@ class Player {
     }
     
     func chooseCharacter() -> Character {
-            print("\nChoice:")
+        print("\nChoice:")
             if let choice = readLine(),
-                choice != "",
-                let indexChoice = Int(choice),
-                indexChoice >= 0,
-                indexChoice < team.count {
-                let characterChoice = team[indexChoice]
+            choice != "",
+            let indexChoice = Int(choice),
+            indexChoice >= 0,
+            indexChoice < team.count {
+            let characterChoice = team[indexChoice]
                 return team[indexChoice]
             } else {
                 print("You have to choose number")
                 return chooseCharacter()
             }
         }
-     
-
-    
-
     
         func isTeamAlive() -> Bool {
         let isTeamAlive = team.contains { character in character.isAlive()}
         if isTeamAlive == true {
             return true
         } else {
-            print("Game Over")
             return false
+        }
+    }
+    
+    func winner() {
+        if isTeamAlive() == true {
+            print("🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇")
+            print("🥇🥇🥇🥇 👏🏻👏🏻 \(name) WON THE GAME 👏🏻👏🏻🥇🥇")
+            print("🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇\n")
         }
     }
 

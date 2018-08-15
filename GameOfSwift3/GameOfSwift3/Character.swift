@@ -44,7 +44,7 @@ class Character {
     func damages() -> Int {
             switch tools {
             case is Sword:
-                return 10
+                return 100
             case is Mace:
                 return 5
             case is Axe:

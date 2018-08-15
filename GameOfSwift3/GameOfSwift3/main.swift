@@ -12,6 +12,7 @@ import Foundation
 var gameManager = GameManager()
 gameManager.initGame()
 gameManager.startGame()
+gameManager.endOfTheGame()
 
 func menu() {
     print("What do you want to do?"
