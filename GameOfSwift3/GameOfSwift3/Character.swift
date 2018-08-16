@@ -42,21 +42,21 @@ class Character {
     }
     
     func damages() -> Int {
-            switch tools {
-            case is Sword:
-                return 100
-            case is Mace:
-                return 5
-            case is Axe:
-                return 7
-            case is Saber:
-                return 6
-            case is Plant:
-                return 15
-            default:
-                return 0
-            }
+        switch tools {
+        case is Sword:
+            return 100
+        case is Mace:
+            return 5
+        case is Axe:
+            return 7
+        case is Saber:
+            return 6
+        case is Plant:
+            return 15
+        default:
+            return 0
         }
+    }
 }
 
 // Class fighter character

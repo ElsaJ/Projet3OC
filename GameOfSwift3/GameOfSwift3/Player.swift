@@ -26,7 +26,7 @@ class Player {
         }
     }
     
-     func resume() {
+    func resume() {
         print("\n \(name)'s team:")
         for character in team {
             print("\n\(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.tools.name) in his hand")
@@ -42,20 +42,20 @@ class Player {
     
     func chooseCharacter() -> Character {
         print("\nChoice:")
-            if let choice = readLine(),
+        if let choice = readLine(),
             choice != "",
             let indexChoice = Int(choice),
             indexChoice >= 0,
-            indexChoice < team.count {
-            let characterChoice = team[indexChoice]
-                return team[indexChoice]
-            } else {
-                print("You have to choose number")
-                return chooseCharacter()
-            }
+            indexChoice < team.count,
+            team[indexChoice].isAlive() {
+            return team[indexChoice]
+        } else {
+            print("Error, try again! ")
+            return chooseCharacter()
         }
+    }
     
-        func isTeamAlive() -> Bool {
+    func isTeamAlive() -> Bool {
         let isTeamAlive = team.contains { character in character.isAlive()}
         if isTeamAlive == true {
             return true
@@ -64,12 +64,12 @@ class Player {
         }
     }
     
-    func winner() {
+    func printWinner() {
         if isTeamAlive() == true {
             print("🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇")
             print("🥇🥇🥇🥇 👏🏻👏🏻 \(name) WON THE GAME 👏🏻👏🏻🥇🥇")
             print("🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇\n")
         }
     }
-
+    
 }

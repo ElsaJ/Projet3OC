@@ -16,7 +16,7 @@ class GameManager {
     private var playerTwo = Player()
     private var chosenNames = [String] ()
     private var numberOfTurn = 0
-
+    
     // function Start the game
     
     func initGame() {
@@ -53,27 +53,27 @@ class GameManager {
     }
     
     func endOfTheGame() {
-    print("\n🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
-    print("🥊🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊🥊")
-    print("🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
-       playerOne.winner()
-       playerTwo.winner()
-        }
-
+        print("\n🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        print("🥊🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊🥊")
+        print("🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        playerOne.printWinner()
+        playerTwo.printWinner()
+    }
+    
     
     func fight(attacker: Character, attacked: Character) {
-        if attacked.lifePoint > 0 && attacked.lifePoint > attacker.damages() {
         let damages = attacker.damages()
         attacked.lifePoint -= damages
-        print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶")
-        print("🔵🔶\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints🔵🔶")
-        print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶\n")
+        if attacked.lifePoint > 0 {
+            print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶")
+            print("🔵🔶\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints🔵🔶")
+            print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶\n")
         } else {
-           attacked.lifePoint = 0
-        print("\n☠️ \(attacked.name) is dead ☠️")
+            print("\n☠️ \(attacked.name) is dead ☠️")
         }
-
+        
     }
+    
     
     func createTeam() -> [Character] {
         var team = [Character]()
