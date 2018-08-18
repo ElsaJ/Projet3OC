@@ -41,7 +41,7 @@ class Character {
         }
     }
     
-    func damages() -> Int {
+    func damagesOrCare() -> Int {
         switch tools {
         case is Sword:
             return 100
@@ -51,50 +51,62 @@ class Character {
             return 7
         case is Saber:
             return 6
-        case is Plant:
+        case is MedicinalPlant:
             return 15
+//        case is Bow:
+//            return 8
+//        case is ChainSaw:
+//            return 80
+//        case is Nunchaku:
+//            return 50
+//        case is MagicWand:
+//            return 25
+//        case is MagicPotion:
+//            return 10
         default:
             return 0
         }
     }
-}
-
-// Class fighter character
-
-class Fighter: Character {
-    init(){
-        super.init(name: "", type: .Fighter, maxLifePoint: 100, lifePoint: 100, tools: Sword())
+    
+    
+    // Class fighter character
+    
+    class Fighter: Character {
+        init(){
+            super.init(name: "", type: .Fighter, maxLifePoint: 100, lifePoint: 100, tools: Sword())
+        }
+    }
+    
+    // Class Colossus character
+    
+    class Colossus: Character {
+        init(){
+            super.init(name: "", type: .Colossus, maxLifePoint: 150, lifePoint: 150, tools: Mace())
+        }
+    }
+    
+    //class Dwarf character
+    
+    class Dwarf: Character {
+        init(){
+            super.init(name: "", type: .Dwarf, maxLifePoint: 120, lifePoint: 120, tools: Axe())
+        }
+    }
+    
+    //class Fairy Character BONUS
+    
+    class Fairy: Character{
+        init(){
+            super.init(name: "", type: .Fairy, maxLifePoint: 180, lifePoint: 180, tools: Saber())
+        }
+    }
+    
+    //class Magus Character
+    
+    class Magus: Character {
+        init(){
+            super.init(name: "", type: .Magus, maxLifePoint: 80 , lifePoint: 80, tools: MedicinalPlant())
+        }
     }
 }
 
-// Class Colossus character
-
-class Colossus: Character {
-    init(){
-        super.init(name: "", type: .Colossus, maxLifePoint: 150, lifePoint: 150, tools: Mace())
-    }
-}
-
-//class Dwarf character
-
-class Dwarf: Character {
-    init(){
-        super.init(name: "", type: .Dwarf, maxLifePoint: 120, lifePoint: 120, tools: Axe())
-    }
-}
-
-//class Fairy Character BONUS
-
-class Fairy: Character{
-    init(){
-        super.init(name: "", type: .Fairy, maxLifePoint: 180, lifePoint: 180, tools: Saber())
-    }
-}
-
-//class Magus Character
-
-class Magus: Character {
-    init(){
-        super.init(name: "", type: .Magus, maxLifePoint: 80 , lifePoint: 80, tools: Plant())
-    }
-}

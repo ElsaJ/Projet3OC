@@ -12,7 +12,7 @@ import Foundation
 
 class GameManager {
     private var numberOfCharacter = 3
-    private var playerOne = Player()
+    var playerOne = Player()
     private var playerTwo = Player()
     private var chosenNames = [String] ()
     private var numberOfTurn = 0
@@ -20,9 +20,6 @@ class GameManager {
     // function Start the game
     
     func initGame() {
-        print("\n💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼")
-        print("  💪🏼⚔︎💪🏼⚔︎ WELCOME TO GAME OF SWIFT III ⚔︎💪🏼⚔︎💪🏼")
-        print("💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼💪🏼\n")
         playerOne.nameYourself()
         let team1 = createTeam()
         playerOne.team = team1
@@ -36,54 +33,71 @@ class GameManager {
     func startGame() {
         var attackerPlayer = playerOne
         var attackedPlayer = playerTwo
-        print("\n🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
-        print("🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊")
-        print("🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        print("        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        print("        🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊")
+        print("        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
-            print("\n Use number to choose character for the attack or character you want to treat")
+            print("\n Use number to choose character for the attack (or the Magus to treat)")
+            swap(&attackerPlayer, &attackedPlayer)
             attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
-            print("\nchoose ennemy to attack or Magus to treat")
-            attackedPlayer.showTeam()
-            let attacked = attackedPlayer.chooseCharacter()
-            fight(attacker: attacker, attacked: attacked)
-            swap(&attackerPlayer, &attackedPlayer)
-            numberOfTurn += 1
+//            let randomChest = Bool.random()
+//            if randomChest {
+//                attacker.tools = changeWeapon(type: attacker) }
+//            if attacker.type == .Magus {
+//                let treater = attacker
+//                print("\nChoose character you want to treat")
+//                let treated = attackerPlayer.chooseCharacter()
+//                treat(treater: treater, treated: treated)
+//            } else {
+                print("\n Choose an ennemy to attack")
+                attackedPlayer.showTeam()
+                let attacked = attackedPlayer.chooseCharacter()
+                fight(attacker: attacker, attacked: attacked)
+                numberOfTurn += 1
+            }
         }
-    }
+    
     
     func endOfTheGame() {
-        print("\n🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
-        print("🥊🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊🥊")
-        print("🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        print("\n          🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        print("          🥊🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊")
+        print("          🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
         playerOne.printWinner()
         playerTwo.printWinner()
     }
     
     
     func fight(attacker: Character, attacked: Character) {
-        let damages = attacker.damages()
+        let damages = attacker.damagesOrCare()
         attacked.lifePoint -= damages
         if attacked.lifePoint > 0 {
             print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶")
             print("🔵🔶\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints🔵🔶")
             print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶\n")
         } else {
-            print("\n☠️ \(attacked.name) is dead ☠️")
+            print("\n         ☠️ \(attacked.name) is DEAD ☠️")
         }
         
+    }
+    
+    func treat(treater: Character, treated: Character) {
+        let care = treater.damagesOrCare()
+        treated.lifePoint += care
+        print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵")
+        print("🔵🔶\(treater.name) treated \(treated.name) who's got now \(treated.lifePoint) lifepoints🔵🔶")
+        print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵\n")
     }
     
     
     func createTeam() -> [Character] {
         var team = [Character]()
-        print(" Now make your team !\n")
+        print(" Make your team by choosing three characters !\n")
         showList()
         while team.count < numberOfCharacter {
             let character = characterChoice()
             team.append(character)
         }
-        
         return team
     }
     
@@ -115,7 +129,7 @@ class GameManager {
             let characterType = CharacterType(rawValue: typeRawValue) {
             return characterType
         } else {
-            print("You have to choose number beetween one to five, try again:")
+            print("❌ You have to choose number beetween one to five ❌")
             return chooseCharacterType()
         }
     }
@@ -137,7 +151,7 @@ class GameManager {
         if  !chosenNames.contains(chosenCharacterName) {
             choice = false
         } else {
-            print("\(chosenCharacterName) already exists")
+            print("❌ \(chosenCharacterName) already exists ❌")
             choice = true
         }
         return choice
@@ -170,7 +184,41 @@ class GameManager {
         case .Fairy:
             return Saber()
         case .Magus:
-            return Plant()
+            return MedicinalPlant()
         }
     }
+
 }
+
+//
+//    private func changeWeapon(type: Character) -> Weapons {
+//        let newWeapon: Weapons
+//        if type.type == .Magus {
+//            let careWeapons = [MagicPotion(),MagicWand()]
+//            let randomIndex = Int(arc4random_uniform(UInt32(careWeapons.count)))
+//            let newCareWeapon = careWeapons[randomIndex]
+//            newWeapon = newCareWeapon
+//            print("\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨")
+//            print("✨✨ You've got a new tools to care: \(newCareWeapon.name)✨✨")
+//            print("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n")
+//        } else {
+//            let attackWeapons = [Bow(), Nunchaku(), ChainSaw()]
+//            let randomIndex = Int(arc4random_uniform(UInt32(attackWeapons.count)))
+//            let newAttackWeapon = attackWeapons[randomIndex]
+//            print("\n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑")
+//            print("    You've got a new weapon: \(newAttackWeapon.name)   ")
+//            print("  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n")
+//            newWeapon = newAttackWeapon
+//        }
+//        return newWeapon
+//    }
+    
+
+
+//extension Bool {
+//    static func random() -> Bool {
+//        return arc4random_uniform(2) == 0
+//    }
+//}
+
+

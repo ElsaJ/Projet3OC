@@ -17,12 +17,12 @@ class Weapons {
     }
 }
 
+
 class Sword: Weapons {
     init() {
         super.init(name: "sword", damages: 10)
     }
 }
-
 
 class Mace: Weapons {
     init() {
@@ -42,8 +42,39 @@ class Saber: Weapons {
     }
 }
 
-class Plant: Weapons {
+//class Bow: Weapons {
+//    init(){
+//        super.init(name: "Bow", damages: 8)
+//    }
+//}
+//
+//class ChainSaw: Weapons {
+//    init(){
+//        super.init(name: "Chain Saw", damages: 30)
+//    }
+//}
+//
+//class Nunchaku: Weapons {
+//    init(){
+//        super.init(name: "Nunchaku", damages: 20)
+//    }
+//}
+
+class MedicinalPlant: Weapons {
     init(){
-        super.init(name: "plant", damages: 15)
+        super.init(name: "Medicinal plant", damages: 15)
     }
 }
+
+//class MagicWand: Weapons {
+//    init(){
+//        super.init(name: " Magic wand", damages: 25)
+//    }
+//}
+//
+//class MagicPotion: Weapons {
+//    init(){
+//        super.init(name: " Magic potion", damages: 10)
+//    }
+//}
+

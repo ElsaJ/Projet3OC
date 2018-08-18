@@ -18,7 +18,7 @@ class Player {
         print("\n Hello player, please enter your name: ")
         if let name = readLine(),
             name != "" {
-            print(" Welcome \(name) !\n")
+            print("             Hey \(name) !\n")
             self.name = name
         } else  {
             print("error in naming, try again:")
@@ -27,10 +27,13 @@ class Player {
     }
     
     func resume() {
-        print("\n \(name)'s team:")
+        print("\n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼")
+        print("\n                    \(name)'s team:")
         for character in team {
-            print("\n\(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.tools.name) in his hand")
+            print("\n \(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.tools.name) in his hand")
         }
+        
+        print("\n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼\n")
     }
     
     func showTeam() {
@@ -50,7 +53,7 @@ class Player {
             team[indexChoice].isAlive() {
             return team[indexChoice]
         } else {
-            print("Error, try again! ")
+            print("❌ Error, try again! ❌ ")
             return chooseCharacter()
         }
     }
@@ -66,9 +69,9 @@ class Player {
     
     func printWinner() {
         if isTeamAlive() == true {
-            print("🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇")
-            print("🥇🥇🥇🥇 👏🏻👏🏻 \(name) WON THE GAME 👏🏻👏🏻🥇🥇")
-            print("🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇\n")
+            print("        🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇")
+            print("        🥇🥇🥇🥇 👏🏻👏🏻 \(name) WON THE GAME 👏🏻👏🏻🥇🥇🥇🥇")
+            print("        🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇\n")
         }
     }
     
