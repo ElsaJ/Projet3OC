@@ -15,10 +15,10 @@ class Player {
     private var name = ""
     
     func nameYourself() {
-        print("Hello player, please enter your name: ")
+        print("\n Hello player, please enter your name: ")
         if let name = readLine(),
             name != "" {
-            print("Welcome \(name) !")
+            print("             Hey \(name) !\n")
             self.name = name
         } else  {
             print("error in naming, try again:")
@@ -27,9 +27,52 @@ class Player {
     }
     
     func resume() {
-        print("\(name)'s team:")
+        print("\n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼")
+        print("\n                    \(name)'s team:")
         for character in team {
-            print("\(character.type) \(character.name) who start with \(character.maxLifePoint) lifepoints and \(character.tools) in his hand")
+            print("\n \(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.tools.name) in his hand")
+        }
+        
+        print("\n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼\n")
+    }
+    
+    func showTeam() {
+        for (index, character) in team.enumerated() {
+            if character.lifePoint > 0 {
+                print("\n\(index): \(character.name) the \(character.type): \(character.lifePoint) 💜, \(character.tools.name)")}
         }
     }
+    
+    func chooseCharacter() -> Character {
+        print("\nChoice:")
+        if let choice = readLine(),
+            choice != "",
+            let indexChoice = Int(choice),
+            indexChoice >= 0,
+            indexChoice < team.count,
+            team[indexChoice].isAlive() {
+            return team[indexChoice]
+        } else {
+            print("❌ Error, try again! ❌ ")
+            return chooseCharacter()
+        }
+    }
+    
+    func isTeamAlive() -> Bool {
+        let isTeamAlive = team.contains { character in character.isAlive()}
+        if isTeamAlive == true {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func printWinner() {
+        if isTeamAlive() == true {
+            print("        🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇")
+            print("        🥇🥇🥇🥇 👏🏻👏🏻 \(name) WON THE GAME 👏🏻👏🏻🥇🥇🥇🥇")
+            print("        🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇\n")
+        }
+    }
+    
 }

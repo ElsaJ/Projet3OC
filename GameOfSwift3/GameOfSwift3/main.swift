@@ -8,30 +8,34 @@
 
 import Foundation
 
-print("Hello, World!")
+var game = true
 var gameManager = GameManager()
+print("\n💪🏼⚔️💪🏼⚔️ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐆𝐀𝐌𝐄 𝐎𝐅 𝐒𝐖𝐈𝐅𝐓 𝐈𝐈𝐈 ⚔️💪🏼⚔️💪🏼")
 gameManager.initGame()
+gameManager.startGame()
+gameManager.endOfTheGame()
 
 func menu() {
     print("What do you want to do?"
-        + "\n1. Restart"
-        + "\n2. Make new team"
-        + "\n3. Quit")
+        + "\n1. RESTART"
+        + "\n2. MAKE NEW TEAM"
+        + "\n3. QUIT")
     
     if let choice = readLine(){
         switch choice {
         case"1":
-            print("Restart")
+            gameManager.startGame()
         case"2":
-            print("Make new team")
+            gameManager.initGame()
         case"3":
-            print("Quit")
+            print("➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔ THANKS FOR PLAYING")
+            game = false
         default:
             print("What?")
         }
     }
 }
 
-while true {
+while game == true {
     menu()
 }
