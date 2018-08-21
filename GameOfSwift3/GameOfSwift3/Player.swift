@@ -75,4 +75,10 @@ class Player {
         }
     }
     
+    func reinitTeam() {
+        for character in team {
+            character.lifePoint = character.maxLifePoint
+        }
+    }
+    
 }

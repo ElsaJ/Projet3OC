@@ -68,6 +68,11 @@ class GameManager {
         playerTwo.printWinner()
     }
     
+    func restart() {
+        playerOne.reinitTeam()
+        playerTwo.reinitTeam()
+    }
+    
     
     func fight(attacker: Character, attacked: Character) {
         let damages = attacker.damages()
@@ -192,12 +197,12 @@ class GameManager {
     private func changeWeapon(type: Character) -> Weapons {
         let newWeapon: Weapons
         if type.type == .Magus {
-            let careWeapons = [MagicPotion(),MagicWand()]
-            let randomIndex = Int(arc4random_uniform(UInt32(careWeapons.count)))
-            let newCareWeapon = careWeapons[randomIndex]
-            newWeapon = newCareWeapon
+            let healingWeapons = [MagicPotion(),MagicWand()]
+            let randomIndex = Int(arc4random_uniform(UInt32(healingWeapons.count)))
+            let newHealingWeapon = healingWeapons[randomIndex]
+            newWeapon = newHealingWeapon
             print("\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨")
-            print("✨✨ You've got a new tools to care: \(newCareWeapon.name)✨✨")
+            print("✨✨ You've got a new tools to care: \(newHealingWeapon.name)✨✨")
             print("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n")
         } else {
             let attackWeapons = [Bow(), Nunchaku(), ChainSaw()]

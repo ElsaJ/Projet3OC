@@ -24,6 +24,7 @@ func menu() {
     if let choice = readLine(){
         switch choice {
         case"1":
+            gameManager.restart()
             gameManager.startGame()
         case"2":
             gameManager.initGame()
