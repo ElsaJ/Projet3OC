@@ -53,12 +53,10 @@ class GameManager {
                 print("\n Choose an ennemy to attack")
                 attackedPlayer.showTeam()
                 let attacked = attackedPlayer.chooseCharacter()
-                fight(attacker: attacker, attacked: attacked)
-                if attacker.type == .Fairy{
-                    print("🌺🌻🌼 \(attacked.name), you've been enchanted, your weapon is now a powerless flower 🌹🌸💐")
-                    attacked.weapon = Flower()
-                }
-            
+                if attacker.type == .Fairy {
+                    fairyPower(attacked: attacked)
+                } else {
+                    fight(attacker: attacker, attacked: attacked) }
                 numberOfTurn += 1
             }
         }
@@ -98,6 +96,16 @@ class GameManager {
         print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵")
         print("🔵🔶\(healer.name) treated \(healed.name) who's got now \(healed.lifePoint) lifepoints🔵🔶")
         print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵\n")
+    }
+    
+    private func fairyPower(attacked: Character) {
+        if attacked.weapon.name != "Flower" {
+            print("\n🌺🌻🌼 \(attacked.name), the fairy changed your weapon in a powerless flower 🌹🌸💐")
+            attacked.weapon = Flower()
+        } else {
+            print("☠️ the fairy made you eat the flower full of poison, you're dead ☠️")
+            attacked.lifePoint = 0
+        }
     }
     
     

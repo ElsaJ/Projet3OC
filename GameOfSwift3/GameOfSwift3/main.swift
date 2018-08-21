@@ -9,6 +9,7 @@
 import Foundation
 
 private var game = true
+private var numberOfRounds = 1
 var gameManager = GameManager()
 print("\n💪🏼⚔️💪🏼⚔️ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐆𝐀𝐌𝐄 𝐎𝐅 𝐒𝐖𝐈𝐅𝐓 𝐈𝐈𝐈 ⚔️💪🏼⚔️💪🏼")
 gameManager.initGame()
@@ -24,6 +25,7 @@ private func menu() {
     if let choice = readLine(){
         switch choice {
         case"1":
+            print("\n                      ROUND \(numberOfRounds)\n")
             gameManager.restart()
             gameManager.startGame()
         case"2":
@@ -40,5 +42,6 @@ private func menu() {
 }
 
 while game == true {
+    numberOfRounds += 1
     menu()
 }
