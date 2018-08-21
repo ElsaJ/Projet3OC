@@ -8,14 +8,14 @@
 
 import Foundation
 
-var game = true
+private var game = true
 var gameManager = GameManager()
 print("\n💪🏼⚔️💪🏼⚔️ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐆𝐀𝐌𝐄 𝐎𝐅 𝐒𝐖𝐈𝐅𝐓 𝐈𝐈𝐈 ⚔️💪🏼⚔️💪🏼")
 gameManager.initGame()
 gameManager.startGame()
 gameManager.endOfTheGame()
 
-func menu() {
+private func menu() {
     print("What do you want to do?"
         + "\n1. RESTART"
         + "\n2. MAKE NEW TEAM"

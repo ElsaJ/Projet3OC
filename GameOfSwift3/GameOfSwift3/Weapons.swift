@@ -70,13 +70,19 @@ class MedicinalPlant: Weapons {
 
 class MagicWand: Weapons {
     init(){
-        super.init(name: " Magic wand", damages: 0, healing: 25)
+        super.init(name: "Magic wand", damages: 0, healing: 25)
     }
 }
 
 class MagicPotion: Weapons {
     init(){
-        super.init(name: " Magic potion", damages: 0, healing: 30)
+        super.init(name: "Magic potion", damages: 0, healing: 30)
+    }
+}
+
+class Flower: Weapons {
+    init(){
+        super.init(name: "Flower", damages: 1, healing: 0)
     }
 }
 

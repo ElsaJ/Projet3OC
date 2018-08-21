@@ -12,7 +12,7 @@ import Foundation
 
 class GameManager {
     private var numberOfCharacter = 3
-    var playerOne = Player()
+    private var playerOne = Player()
     private var playerTwo = Player()
     private var chosenNames = [String] ()
     private var numberOfTurn = 0
@@ -37,7 +37,7 @@ class GameManager {
         print("        🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊")
         print("        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
-            print("\n Use number to choose character for the attack (or the Magus to treat)")
+            print("\n Use number to choose character for the attack (or the Magus to heal)")
             swap(&attackerPlayer, &attackedPlayer)
             attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
@@ -54,6 +54,11 @@ class GameManager {
                 attackedPlayer.showTeam()
                 let attacked = attackedPlayer.chooseCharacter()
                 fight(attacker: attacker, attacked: attacked)
+                if attacker.type == .Fairy{
+                    print("🌺🌻🌼 \(attacked.name), you've been enchanted, your weapon is now a powerless flower 🌹🌸💐")
+                    attacked.weapon = Flower()
+                }
+            
                 numberOfTurn += 1
             }
         }
@@ -74,7 +79,7 @@ class GameManager {
     }
     
     
-    func fight(attacker: Character, attacked: Character) {
+    private func fight(attacker: Character, attacked: Character) {
         let damages = attacker.damages()
         attacked.lifePoint -= damages
         if attacked.lifePoint > 0 {
@@ -87,7 +92,7 @@ class GameManager {
         
     }
     
-    func heal(healer: Character, healed: Character) {
+    private func heal(healer: Character, healed: Character) {
         let heal = healer.healing()
         healed.lifePoint += heal
         print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵")
@@ -96,7 +101,7 @@ class GameManager {
     }
     
     
-    func createTeam() -> [Character] {
+    private func createTeam() -> [Character] {
         var team = [Character]()
         print(" Make your team by choosing three characters !\n")
         showList()
@@ -202,7 +207,7 @@ class GameManager {
             let newHealingWeapon = healingWeapons[randomIndex]
             newWeapon = newHealingWeapon
             print("\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨")
-            print("✨✨ You've got a new tools to care: \(newHealingWeapon.name)✨✨")
+            print("✨✨ You've got a new tools to heal: \(newHealingWeapon.name)✨✨")
             print("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n")
         } else {
             let attackWeapons = [Bow(), Nunchaku(), ChainSaw()]
