@@ -10,73 +10,73 @@ import Foundation
 
 class Weapons {
     var damages: Int
-    var treatment: Int
+    var healing: Int
     var name: String
-    init(name: String, damages: Int, treatment: Int) {
+    init(name: String, damages: Int, healing: Int) {
         self.damages = damages
         self.name = name
-        self.treatment = treatment
+        self.healing = healing
     }
 }
 
 
 class Sword: Weapons {
     init() {
-        super.init(name: "sword", damages: 10, treatment: 0)
+        super.init(name: "sword", damages: 10, healing: 0)
     }
 }
 
 class Mace: Weapons {
     init() {
-        super.init(name: "mace", damages: 5, treatment: 0)
+        super.init(name: "mace", damages: 5, healing: 0)
     }
 }
 
 class Axe : Weapons {
     init() {
-        super.init(name: "axe", damages: 7, treatment: 0)
+        super.init(name: "axe", damages: 7, healing: 0)
     }
 }
 
 class Saber: Weapons {
     init() {
-        super.init(name: "saber", damages: 6, treatment: 0)
+        super.init(name: "saber", damages: 6, healing: 0)
     }
 }
 
 class Bow: Weapons {
     init(){
-        super.init(name: "Bow", damages: 8, treatment: 0)
+        super.init(name: "Bow", damages: 8, healing: 0)
     }
 }
 
 class ChainSaw: Weapons {
     init(){
-        super.init(name: "Chain Saw", damages: 30, treatment: 0)
+        super.init(name: "Chain Saw", damages: 30, healing: 0)
     }
 }
 
 class Nunchaku: Weapons {
     init(){
-        super.init(name: "Nunchaku", damages: 20, treatment: 0)
+        super.init(name: "Nunchaku", damages: 20, healing: 0)
     }
 }
 
 class MedicinalPlant: Weapons {
     init(){
-        super.init(name: "Medicinal plant", damages: 0, treatment: 15)
+        super.init(name: "Medicinal plant", damages: 0, healing: 15)
     }
 }
 
 class MagicWand: Weapons {
     init(){
-        super.init(name: " Magic wand", damages: 0, treatment: 25)
+        super.init(name: " Magic wand", damages: 0, healing: 25)
     }
 }
 
 class MagicPotion: Weapons {
     init(){
-        super.init(name: " Magic potion", damages: 0, treatment: 30)
+        super.init(name: " Magic potion", damages: 0, healing: 30)
     }
 }
 

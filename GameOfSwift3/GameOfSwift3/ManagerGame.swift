@@ -43,12 +43,12 @@ class GameManager {
             let attacker = attackerPlayer.chooseCharacter()
             let randomChest = Bool.random()
             if randomChest {
-                attacker.tools = changeWeapon(type: attacker) }
+                attacker.weapon = changeWeapon(type: attacker) }
             if attacker.type == .Magus {
-                let treater = attacker
+                let healer = attacker
                 print("\nChoose character you want to treat")
-                let treated = attackerPlayer.chooseCharacter()
-                treat(treater: treater, treated: treated)
+                let healed = attackerPlayer.chooseCharacter()
+                heal(healer: healer, healed: healed)
             } else {
                 print("\n Choose an ennemy to attack")
                 attackedPlayer.showTeam()
@@ -70,7 +70,7 @@ class GameManager {
     
     
     func fight(attacker: Character, attacked: Character) {
-        let damages = attacker.damagesOrCare()
+        let damages = attacker.damages()
         attacked.lifePoint -= damages
         if attacked.lifePoint > 0 {
             print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶")
@@ -82,11 +82,11 @@ class GameManager {
         
     }
     
-    func treat(treater: Character, treated: Character) {
-        let care = treater.damagesOrCare()
-        treated.lifePoint += care
+    func heal(healer: Character, healed: Character) {
+        let heal = healer.healing()
+        healed.lifePoint += heal
         print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵")
-        print("🔵🔶\(treater.name) treated \(treated.name) who's got now \(treated.lifePoint) lifepoints🔵🔶")
+        print("🔵🔶\(healer.name) treated \(healed.name) who's got now \(healed.lifePoint) lifepoints🔵🔶")
         print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵\n")
     }
     
@@ -120,7 +120,7 @@ class GameManager {
         let lifePoint = getLifePoint(type: characterType)
         let characterTools = getTools(type: characterType)
         
-        return Character(name: characterName, type: characterType, maxLifePoint: characterLifePoint, lifePoint: lifePoint, tools: characterTools)
+        return Character(name: characterName, type: characterType, maxLifePoint: characterLifePoint, lifePoint: lifePoint, weapon: characterTools)
     }
     
     private func chooseCharacterType() -> CharacterType {

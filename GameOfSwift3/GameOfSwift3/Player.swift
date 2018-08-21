@@ -30,7 +30,7 @@ class Player {
         print("\n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼")
         print("\n                    \(name)'s team:")
         for character in team {
-            print("\n \(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.tools.name) in his hand")
+            print("\n \(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.weapon.name) in his hand")
         }
         
         print("\n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼\n")
@@ -39,7 +39,7 @@ class Player {
     func showTeam() {
         for (index, character) in team.enumerated() {
             if character.lifePoint > 0 {
-                print("\n\(index): \(character.name) the \(character.type): \(character.lifePoint) 💜, \(character.tools.name)")}
+                print("\n\(index): \(character.name) the \(character.type): \(character.lifePoint) 💜, \(character.weapon.name)")}
         }
     }
     
