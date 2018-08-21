@@ -41,15 +41,15 @@ class GameManager {
             swap(&attackerPlayer, &attackedPlayer)
             attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
-//            let randomChest = Bool.random()
-//            if randomChest {
-//                attacker.tools = changeWeapon(type: attacker) }
-//            if attacker.type == .Magus {
-//                let treater = attacker
-//                print("\nChoose character you want to treat")
-//                let treated = attackerPlayer.chooseCharacter()
-//                treat(treater: treater, treated: treated)
-//            } else {
+            let randomChest = Bool.random()
+            if randomChest {
+                attacker.tools = changeWeapon(type: attacker) }
+            if attacker.type == .Magus {
+                let treater = attacker
+                print("\nChoose character you want to treat")
+                let treated = attackerPlayer.chooseCharacter()
+                treat(treater: treater, treated: treated)
+            } else {
                 print("\n Choose an ennemy to attack")
                 attackedPlayer.showTeam()
                 let attacked = attackedPlayer.chooseCharacter()
@@ -57,6 +57,7 @@ class GameManager {
                 numberOfTurn += 1
             }
         }
+    }
     
     
     func endOfTheGame() {
@@ -187,38 +188,35 @@ class GameManager {
             return MedicinalPlant()
         }
     }
-
+    
+    private func changeWeapon(type: Character) -> Weapons {
+        let newWeapon: Weapons
+        if type.type == .Magus {
+            let careWeapons = [MagicPotion(),MagicWand()]
+            let randomIndex = Int(arc4random_uniform(UInt32(careWeapons.count)))
+            let newCareWeapon = careWeapons[randomIndex]
+            newWeapon = newCareWeapon
+            print("\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨")
+            print("✨✨ You've got a new tools to care: \(newCareWeapon.name)✨✨")
+            print("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n")
+        } else {
+            let attackWeapons = [Bow(), Nunchaku(), ChainSaw()]
+            let randomIndex = Int(arc4random_uniform(UInt32(attackWeapons.count)))
+            let newAttackWeapon = attackWeapons[randomIndex]
+            print("\n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑")
+            print("    You've got a new weapon: \(newAttackWeapon.name)   ")
+            print("  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n")
+            newWeapon = newAttackWeapon
+        }
+        return newWeapon
+    }
+    
 }
 
-//
-//    private func changeWeapon(type: Character) -> Weapons {
-//        let newWeapon: Weapons
-//        if type.type == .Magus {
-//            let careWeapons = [MagicPotion(),MagicWand()]
-//            let randomIndex = Int(arc4random_uniform(UInt32(careWeapons.count)))
-//            let newCareWeapon = careWeapons[randomIndex]
-//            newWeapon = newCareWeapon
-//            print("\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨")
-//            print("✨✨ You've got a new tools to care: \(newCareWeapon.name)✨✨")
-//            print("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n")
-//        } else {
-//            let attackWeapons = [Bow(), Nunchaku(), ChainSaw()]
-//            let randomIndex = Int(arc4random_uniform(UInt32(attackWeapons.count)))
-//            let newAttackWeapon = attackWeapons[randomIndex]
-//            print("\n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑")
-//            print("    You've got a new weapon: \(newAttackWeapon.name)   ")
-//            print("  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n")
-//            newWeapon = newAttackWeapon
-//        }
-//        return newWeapon
-//    }
-    
-
-
-//extension Bool {
-//    static func random() -> Bool {
-//        return arc4random_uniform(2) == 0
-//    }
-//}
+extension Bool {
+    static func random() -> Bool {
+        return arc4random_uniform(2) == 0
+    }
+}
 
 

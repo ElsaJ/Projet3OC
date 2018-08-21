@@ -27,6 +27,8 @@ func menu() {
             gameManager.startGame()
         case"2":
             gameManager.initGame()
+            gameManager.startGame()
+            gameManager.endOfTheGame()
         case"3":
             print("➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔ THANKS FOR PLAYING")
             game = false

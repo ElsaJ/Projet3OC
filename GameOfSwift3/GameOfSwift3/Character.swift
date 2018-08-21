@@ -53,16 +53,16 @@ class Character {
             return 6
         case is MedicinalPlant:
             return 15
-//        case is Bow:
-//            return 8
-//        case is ChainSaw:
-//            return 80
-//        case is Nunchaku:
-//            return 50
-//        case is MagicWand:
-//            return 25
-//        case is MagicPotion:
-//            return 10
+        case is Bow:
+            return 8
+        case is ChainSaw:
+            return 80
+        case is Nunchaku:
+            return 50
+        case is MagicWand:
+            return 25
+        case is MagicPotion:
+            return 10
         default:
             return 0
         }
