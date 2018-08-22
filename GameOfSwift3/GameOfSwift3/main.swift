@@ -18,7 +18,7 @@ gameManager.endOfTheGame()
 
 private func menu() {
     let str = """
-       What do you want to do?
+       What do you want to do?\n
         1. RESTART
         2. MAKE NEW TEAM
         3. QUIT
@@ -30,6 +30,7 @@ private func menu() {
             print("\n                      ROUND \(numberOfRounds)\n")
             gameManager.restart()
             gameManager.startGame()
+            gameManager.endOfTheGame()
         case"2":
             gameManager.initGame()
             gameManager.startGame()

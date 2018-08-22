@@ -68,9 +68,9 @@ class GameManager {
     
     func endOfTheGame() {
         let str = """
-                            \n🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
-                         🥊🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊
-                             🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+                              🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+                              🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊🥊
+                              🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
              """
         print(str)
         playerOne.printWinner()
@@ -115,7 +115,7 @@ class GameManager {
             print("\n🌺🌻🌼 \(attacked.name), the fairy changed your weapon in a powerless flower 🌹🌸💐")
             attacked.weapon = Flower()
         } else {
-            print("☠️ the fairy made you eat the flower full of poison, you're dead ☠️")
+            print("☠️ the fairy made you eat the flower full of poison, you're dead ☠️\n")
             attacked.lifePoint = 0
         }
     }
