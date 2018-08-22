@@ -44,9 +44,7 @@ class GameManager {
             swap(&attackerPlayer, &attackedPlayer)
             attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
-            let randomChest = Bool.random()
-            if randomChest {
-                attacker.weapon = changeWeapon(type: attacker) }
+            randomChest(type: attacker)
             if attacker.type == .Magus {
                 let healer = attacker
                 print("\nChoose character you want to treat")
@@ -80,6 +78,16 @@ class GameManager {
     func restart() {
         playerOne.reinitTeam()
         playerTwo.reinitTeam()
+    }
+    
+    private func randomChest(type: Character) {
+        let randomChest = Bool.random()
+        if randomChest {
+            if type.type == .Magus {
+                type.weapon = changeHealingTool(type: type)
+            } else {
+               type.weapon = changeWeapon(type: type) }
+        }
     }
     
     
