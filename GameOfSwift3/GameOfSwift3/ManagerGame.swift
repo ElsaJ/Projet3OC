@@ -45,31 +45,24 @@ class GameManager {
             attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
             randomChest(type: attacker)
-            if attacker.type == .Magus {
-                let healer = attacker
-                print("\nChoose character you want to treat")
-                let healed = attackerPlayer.chooseCharacter()
-                heal(healer: healer, healed: healed)
+            magusCase(type: attacker)
+            print("\n Choose an ennemy to attack")
+            attackedPlayer.showTeam()
+            let attacked = attackedPlayer.chooseCharacter()
+            if attacker.type == .Fairy {
+                fairyPower(attacked: attacked)
             } else {
-                print("\n Choose an ennemy to attack")
-                attackedPlayer.showTeam()
-                let attacked = attackedPlayer.chooseCharacter()
-                if attacker.type == .Fairy {
-                    fairyPower(attacked: attacked)
-                } else {
-                    fight(attacker: attacker, attacked: attacked) }
-                numberOfTurn += 1
-            }
+                fight(attacker: attacker, attacked: attacked) }
+            numberOfTurn += 1
         }
     }
     
-    
     func endOfTheGame() {
         let str = """
-                              🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
-                              🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊🥊
-                              🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
-             """
+        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+        🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊🥊
+        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+        """
         print(str)
         playerOne.printWinner()
         playerTwo.printWinner()
@@ -86,7 +79,15 @@ class GameManager {
             if type.type == .Magus {
                 type.weapon = changeHealingTool(type: type)
             } else {
-               type.weapon = changeWeapon(type: type) }
+                type.weapon = changeWeapon(type: type) }
+        }
+    }
+    
+    private func magusCase(type: Character) {
+        if type.type == .Magus {
+            print("\nChoose character you want to treat")
+            let healed = playerOne.chooseCharacter()
+            heal(healer: type, healed: healed)
         }
     }
     
@@ -123,7 +124,7 @@ class GameManager {
             print("\n🌺🌻🌼 \(attacked.name), the fairy changed your weapon in a powerless flower 🌹🌸💐")
             attacked.weapon = Flower()
         } else {
-            print("☠️ the fairy made you eat the flower full of poison, you're dead ☠️\n")
+            print("\n          ☠️ the fairy made you eat the poisonous flower, you're dead ☠️\n")
             attacked.lifePoint = 0
         }
     }
@@ -235,8 +236,8 @@ class GameManager {
         let newAttackWeapon = attackWeapons[randomIndex]
         let str = """
         \n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
-        You've got a new weapon: \(newAttackWeapon.name)
-        🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
+            You've got a new weapon: \(newAttackWeapon.name)
+          🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
         """
         print(str)
         return newAttackWeapon
