@@ -33,9 +33,12 @@ class GameManager {
     func startGame() {
         var attackerPlayer = playerOne
         var attackedPlayer = playerTwo
-        print("        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
-        print("        🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊")
-        print("        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        var str = """
+                       🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+                       🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊
+                       🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+         """
+        print(str)
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
             print("\n Use number to choose character for the attack (or the Magus to heal)")
             swap(&attackerPlayer, &attackedPlayer)
@@ -64,9 +67,12 @@ class GameManager {
     
     
     func endOfTheGame() {
-        print("\n          🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
-        print("          🥊🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊")
-        print("          🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊")
+        let str = """
+                            \n🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+                         🥊🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊
+                             🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+             """
+        print(str)
         playerOne.printWinner()
         playerTwo.printWinner()
     }
@@ -81,9 +87,12 @@ class GameManager {
         let damages = attacker.damages()
         attacked.lifePoint -= damages
         if attacked.lifePoint > 0 {
-            print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶")
-            print("🔵🔶\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints🔵🔶")
-            print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶\n")
+            let str = """
+            \n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶
+            🔵🔶\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints🔵🔶
+            🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶\n
+            """
+            print(str)
         } else {
             print("\n         ☠️ \(attacked.name) is DEAD ☠️")
         }
@@ -93,9 +102,12 @@ class GameManager {
     private func heal(healer: Character, healed: Character) {
         let heal = healer.healing()
         healed.lifePoint += heal
-        print("\n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵")
-        print("🔵🔶\(healer.name) treated \(healed.name) who's got now \(healed.lifePoint) lifepoints🔵🔶")
-        print("🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵\n")
+        let str = """
+        \n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵
+        🔵🔶\(healer.name) treated \(healed.name) who's got now \(healed.lifePoint) lifepoints🔵🔶
+        🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵\n
+        """
+        print(str)
     }
     
     private func fairyPower(attacked: Character) {
@@ -122,13 +134,15 @@ class GameManager {
     
     
     private func showList() {
-        
-        print("This is the list of characters available :\n"
-            + "\n \(CharacterType.Fighter.rawValue)/ Fighter 🥊"
-            + "\n \(CharacterType.Colossus.rawValue)/ Colossus 💪🏼"
-            + "\n \(CharacterType.Dwarf.rawValue)/ Dwarf 🧝🏼‍♂️"
-            + "\n \(CharacterType.Fairy.rawValue)/ Fairy 🧚🏼‍♂️"
-            + "\n \(CharacterType.Magus.rawValue)/ Magus 🧙🏽‍♂️")
+        let str = """
+        This is the list of characters available :
+        \(CharacterType.Fighter.rawValue)/ Fighter 🥊
+        \(CharacterType.Colossus.rawValue)/ Colossus 💪🏼
+        \(CharacterType.Dwarf.rawValue)/ Dwarf 🧝🏼‍♂️
+        \(CharacterType.Fairy.rawValue)/ Fairy 🧚🏼‍♂️
+        \(CharacterType.Magus.rawValue)/ Magus 🧙🏽‍♂️
+        """
+        print(str)
     }
     
     private func characterChoice() -> Character {
@@ -192,7 +206,7 @@ class GameManager {
         }
     }
     
-    private func getTools(type: CharacterType) -> Weapons {
+    private func getTools(type: CharacterType) -> Weapon {
         switch type {
         case .Fighter:
             return Sword()
@@ -207,23 +221,29 @@ class GameManager {
         }
     }
     
-    private func changeWeapon(type: Character) -> Weapons {
-        let newWeapon: Weapons
+    private func changeWeapon(type: Character) -> Weapon {
+        let newWeapon: Weapon
         if type.type == .Magus {
             let healingWeapons = [MagicPotion(),MagicWand()]
             let randomIndex = Int(arc4random_uniform(UInt32(healingWeapons.count)))
             let newHealingWeapon = healingWeapons[randomIndex]
             newWeapon = newHealingWeapon
-            print("\n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨")
-            print("✨✨ You've got a new tools to heal: \(newHealingWeapon.name)✨✨")
-            print("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n")
+            let str = """
+            \n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
+            ✨✨ You've got a new tools to heal: \(newHealingWeapon.name)✨✨
+            ✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n
+            """
+            print(str)
         } else {
             let attackWeapons = [Bow(), Nunchaku(), ChainSaw()]
             let randomIndex = Int(arc4random_uniform(UInt32(attackWeapons.count)))
             let newAttackWeapon = attackWeapons[randomIndex]
-            print("\n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑")
-            print("    You've got a new weapon: \(newAttackWeapon.name)   ")
-            print("  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n")
+            let str = """
+            \n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
+                You've got a new weapon: \(newAttackWeapon.name)
+              🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
+            """
+            print(str)
             newWeapon = newAttackWeapon
         }
         return newWeapon

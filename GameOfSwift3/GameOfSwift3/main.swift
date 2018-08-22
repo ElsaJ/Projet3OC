@@ -17,11 +17,13 @@ gameManager.startGame()
 gameManager.endOfTheGame()
 
 private func menu() {
-    print("What do you want to do?"
-        + "\n1. RESTART"
-        + "\n2. MAKE NEW TEAM"
-        + "\n3. QUIT")
-    
+    let str = """
+       What do you want to do?
+        1. RESTART
+        2. MAKE NEW TEAM
+        3. QUIT
+       """
+    print(str)
     if let choice = readLine(){
         switch choice {
         case"1":

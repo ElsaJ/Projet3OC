@@ -23,9 +23,9 @@ class Character {
     var name: String
     var maxLifePoint: Int
     var lifePoint: Int
-    var weapon: Weapons
+    var weapon: Weapon
     var type: CharacterType
-    init(name: String, type: CharacterType, maxLifePoint: Int, lifePoint: Int, weapon: Weapons) {
+    init(name: String, type: CharacterType, maxLifePoint: Int, lifePoint: Int, weapon: Weapon) {
         self.name = name
         self.type = type
         self.maxLifePoint = maxLifePoint
