@@ -222,31 +222,29 @@ class GameManager {
     }
     
     private func changeWeapon(type: Character) -> Weapon {
-        let newWeapon: Weapon
-        if type.type == .Magus {
-            let healingWeapons = [MagicPotion(),MagicWand()]
-            let randomIndex = Int(arc4random_uniform(UInt32(healingWeapons.count)))
-            let newHealingWeapon = healingWeapons[randomIndex]
-            newWeapon = newHealingWeapon
-            let str = """
-            \n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
-            ✨✨ You've got a new tools to heal: \(newHealingWeapon.name)✨✨
-            ✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n
-            """
-            print(str)
-        } else {
-            let attackWeapons = [Bow(), Nunchaku(), ChainSaw()]
-            let randomIndex = Int(arc4random_uniform(UInt32(attackWeapons.count)))
-            let newAttackWeapon = attackWeapons[randomIndex]
-            let str = """
-            \n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
-                You've got a new weapon: \(newAttackWeapon.name)
-              🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
-            """
-            print(str)
-            newWeapon = newAttackWeapon
-        }
-        return newWeapon
+        let attackWeapons = [Bow(), Nunchaku(), ChainSaw()]
+        let randomIndex = Int(arc4random_uniform(UInt32(attackWeapons.count)))
+        let newAttackWeapon = attackWeapons[randomIndex]
+        let str = """
+        \n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
+        You've got a new weapon: \(newAttackWeapon.name)
+        🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
+        """
+        print(str)
+        return newAttackWeapon
+    }
+    
+    private func changeHealingTool(type: Character) -> Weapon {
+        let healingTools = [MagicPotion(),MagicWand()]
+        let randomIndex = Int(arc4random_uniform(UInt32(healingTools.count)))
+        let newHealingTool = healingTools[randomIndex]
+        let str = """
+        \n✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨
+        ✨✨ You've got a new tools to heal: \(newHealingTool.name)✨✨
+        ✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨\n
+        """
+        print(str)
+        return newHealingTool
     }
     
 }
