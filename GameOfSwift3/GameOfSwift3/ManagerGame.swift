@@ -33,7 +33,7 @@ class GameManager {
     func startGame() {
         var attackerPlayer = playerOne
         var attackedPlayer = playerTwo
-        var str = """
+        let str = """
                        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
                        🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊
                        🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
@@ -49,13 +49,14 @@ class GameManager {
             print("\n Choose an ennemy to attack")
             attackedPlayer.showTeam()
             let attacked = attackedPlayer.chooseCharacter()
-            if attacker.type == .Fairy {
-                fairyPower(attacked: attacked)
+            if fairyCase(attacker: attacker, attacked: attacked) == true {
+                fight(attacker: attacker, attacked: attacked)
             } else {
-                fight(attacker: attacker, attacked: attacked) }
+            fight(attacker: attacker, attacked: attacked) }
             numberOfTurn += 1
         }
     }
+    
     
     func endOfTheGame() {
         let str = """
@@ -91,6 +92,18 @@ class GameManager {
         }
     }
     
+    private func fairyCase(attacker: Character, attacked: Character) -> Bool {
+        var isAFairy: Bool
+        if attacker.type == .Fairy {
+            fairyPower(attacked: attacked)
+            isAFairy = true
+        } else {
+            isAFairy = false
+        }
+        
+        return isAFairy
+    }
+    
     
     private func fight(attacker: Character, attacked: Character) {
         let damages = attacker.damages()
@@ -103,7 +116,7 @@ class GameManager {
             """
             print(str)
         } else {
-            print("\n         ☠️ \(attacked.name) is DEAD ☠️")
+            print("\n                        ☠️ \(attacked.name) is DEAD ☠️\n")
         }
         
     }
@@ -124,7 +137,7 @@ class GameManager {
             print("\n🌺🌻🌼 \(attacked.name), the fairy changed your weapon in a powerless flower 🌹🌸💐")
             attacked.weapon = Flower()
         } else {
-            print("\n          ☠️ the fairy made you eat the poisonous flower, you're dead ☠️\n")
+            print("\n          ☠️ the fairy made you eat the poisonous flower ☠️\n")
             attacked.lifePoint = 0
         }
     }

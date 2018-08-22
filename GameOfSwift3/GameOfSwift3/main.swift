@@ -27,7 +27,7 @@ private func menu() {
     if let choice = readLine(){
         switch choice {
         case"1":
-            print("\n                      ROUND \(numberOfRounds)\n")
+            print("\n                            ROUND \(numberOfRounds)\n")
             gameManager.restart()
             gameManager.startGame()
             gameManager.endOfTheGame()
