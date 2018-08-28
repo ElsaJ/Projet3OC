@@ -41,15 +41,18 @@ class GameManager {
             attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
             randomWeapon(type: attacker)
-            magusCase(type: attacker)
-            print("\n Choose an ennemy to attack")
-            attackedPlayer.showTeam()
-            let attacked = attackedPlayer.chooseCharacter()
-            if fairyCase(attacker: attacker, attacked: attacked) == true {
-                fight(attacker: attacker, attacked: attacked)
+            if attacker.type == .Magus {
+                magusAction(type: attacker)
             } else {
-                fight(attacker: attacker, attacked: attacked) }
-            numberOfTurn += 1
+                print("\n Choose an ennemy to attack")
+                attackedPlayer.showTeam()
+                let attacked = attackedPlayer.chooseCharacter()
+                if fairyAction(attacker: attacker, attacked: attacked) == true {
+                    fight(attacker: attacker, attacked: attacked)
+                } else {
+                    fight(attacker: attacker, attacked: attacked) }
+                numberOfTurn += 1
+            }
         }
     }
     
@@ -93,7 +96,7 @@ class GameManager {
         }
     }
     
-    private func magusCase(type: Character) {
+    private func magusAction(type: Character) {
         if type.type == .Magus {
             print("\nChoose character you want to treat")
             let healed = playerOne.chooseCharacter()
@@ -101,10 +104,11 @@ class GameManager {
         }
     }
     
-    private func fairyCase(attacker: Character, attacked: Character) -> Bool {
+    private func fairyAction(attacker: Character, attacked: Character) -> Bool {
         var isAFairy: Bool
         if attacker.type == .Fairy {
-            fairyPower(attacked: attacked)
+            let attacker = Fairy()
+            attacker.fairyPower(attacked: attacked)
             isAFairy = true
         } else {
             isAFairy = false
@@ -131,8 +135,11 @@ class GameManager {
     }
     
     private func heal(healer: Character, healed: Character) {
-        let heal = healer.healing()
-        healed.lifePoint += heal
+        if healer.type == .Magus {
+            let healer = Magus()
+            let heal = healer.healing()
+             healed.lifePoint += heal
+        }
         let str = """
         \n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵
         🔵🔶\(healer.name) treated \(healed.name) who's got now \(healed.lifePoint) lifepoints🔵🔶
@@ -274,6 +281,4 @@ class GameManager {
     }
     
 }
-
-
 
