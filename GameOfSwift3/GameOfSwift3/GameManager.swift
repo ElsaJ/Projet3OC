@@ -36,11 +36,11 @@ class GameManager {
         var attackerPlayer = playerOne
         var attackedPlayer = playerTwo
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
-            print("\n Use number to choose character for the attack (or the Magus to heal)")
             swap(&attackerPlayer, &attackedPlayer)
+            print("\n Use number to choose character for the attack (or the Magus to heal)")
             attackerPlayer.showTeam()
             let attacker = attackerPlayer.chooseCharacter()
-            randomChest(type: attacker)
+            randomWeapon(type: attacker)
             magusCase(type: attacker)
             print("\n Choose an ennemy to attack")
             attackedPlayer.showTeam()
@@ -79,9 +79,13 @@ class GameManager {
         print(str)
     }
     
-    private func randomChest(type: Character) {
-        let randomChest = Bool.random()
-        if randomChest {
+    private func randomChest() -> Bool {
+        return arc4random_uniform(2) == 0
+    }
+    
+    private func randomWeapon(type: Character) {
+        let chest = randomChest()
+        if chest {
             if type.type == .Magus {
                 type.weapon = changeHealingTool(type: type)
             } else {
@@ -271,10 +275,5 @@ class GameManager {
     
 }
 
-extension Bool {
-    static func random() -> Bool {
-        return arc4random_uniform(2) == 0
-    }
-}
 
 
