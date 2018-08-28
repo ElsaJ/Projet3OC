@@ -10,8 +10,10 @@ import Foundation
 
 // Create Game Manager to control the Game
 
+/// <#Description#>
 class GameManager {
     private var numberOfCharacter = 3
+    /// <#Description#>
     private var playerOne = Player()
     private var playerTwo = Player()
     private var chosenNames = [String] ()
@@ -110,9 +112,9 @@ class GameManager {
         attacked.lifePoint -= damages
         if attacked.lifePoint > 0 {
             let str = """
-            \n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶
+            \n🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵
             🔵🔶\(attacker.name) takes \(damages) points to \(attacked.name) who's got now \(attacked.lifePoint) lifepoints🔵🔶
-            🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶\n
+            🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵🔶🔵\n
             """
             print(str)
         } else {
@@ -256,6 +258,10 @@ class GameManager {
         return newAttackWeapon
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter type: <#type description#>
+    /// - Returns: <#return value description#>
     private func changeHealingTool(type: Character) -> Weapon {
         let healingTools = [MagicPotion(),MagicWand()]
         let randomIndex = Int(arc4random_uniform(UInt32(healingTools.count)))

@@ -17,6 +17,22 @@ gameManager.startGame()
 gameManager.endOfTheGame()
 
 private func menu() {
+    if let choice = readLine(){
+        switch choice {
+        case"1":
+            print("\n                            ROUND \(numberOfRounds)\n")
+            restart()
+        case"2":
+            makeNewTeam()
+        case"3":
+            quit()
+        default:
+            print("What?")
+        }
+    }
+}
+
+private func printMenu() {
     let str = """
        What do you want to do?\n
         1. RESTART
@@ -24,27 +40,27 @@ private func menu() {
         3. QUIT
        """
     print(str)
-    if let choice = readLine(){
-        switch choice {
-        case"1":
-            print("\n                            ROUND \(numberOfRounds)\n")
-            gameManager.restart()
-            gameManager.startGame()
-            gameManager.endOfTheGame()
-        case"2":
-            gameManager.initGame()
-            gameManager.startGame()
-            gameManager.endOfTheGame()
-        case"3":
-            print("➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔ THANKS FOR PLAYING")
-            game = false
-        default:
-            print("What?")
-        }
-    }
+}
+
+private func restart() {
+    gameManager.restart()
+    gameManager.startGame()
+    gameManager.endOfTheGame()
+}
+
+private func makeNewTeam() {
+    gameManager.initGame()
+    gameManager.startGame()
+    gameManager.endOfTheGame()
+}
+
+private func quit() {
+    print("➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔➔ THANKS FOR PLAYING")
+    game = false
 }
 
 while game == true {
     numberOfRounds += 1
     menu()
 }
+
