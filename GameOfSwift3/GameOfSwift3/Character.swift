@@ -45,10 +45,7 @@ class Character {
         return weapon.damages
     }
     
-    func healing() -> Int {
-        return weapon.healing
-        
-    }
+   
     
     
     // Class fighter character
@@ -83,12 +80,5 @@ class Character {
         }
     }
     
-    //class Magus Character
-    
-    class Magus: Character {
-        init(){
-            super.init(name: "", type: .Magus, maxLifePoint: 80 , lifePoint: 80, weapon: MedicinalPlant())
-        }
-    }
 }
 
