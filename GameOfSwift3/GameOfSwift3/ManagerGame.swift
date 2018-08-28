@@ -54,7 +54,7 @@ class GameManager {
             if fairyCase(attacker: attacker, attacked: attacked) == true {
                 fight(attacker: attacker, attacked: attacked)
             } else {
-            fight(attacker: attacker, attacked: attacked) }
+                fight(attacker: attacker, attacked: attacked) }
             numberOfTurn += 1
         }
     }
@@ -134,15 +134,6 @@ class GameManager {
         print(str)
     }
     
-    private func fairyPower(attacked: Character) {
-        if attacked.weapon.name != "Flower" {
-            print("\n🌺🌻🌼 \(attacked.name), the fairy changed your weapon in a powerless flower 🌹🌸💐")
-            attacked.weapon = Flower()
-        } else {
-            print("\n          ☠️ the fairy made you eat the poisonous flower ☠️\n")
-            attacked.lifePoint = 0
-        }
-    }
     
     
     private func createTeam() -> [Character] {
@@ -251,8 +242,8 @@ class GameManager {
         let newAttackWeapon = attackWeapons[randomIndex]
         let str = """
         \n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
-            You've got a new weapon: \(newAttackWeapon.name)
-          🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
+        You've got a new weapon: \(newAttackWeapon.name)
+        🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
         """
         print(str)
         return newAttackWeapon

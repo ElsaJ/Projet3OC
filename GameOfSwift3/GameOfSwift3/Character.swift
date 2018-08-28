@@ -45,40 +45,36 @@ class Character {
         return weapon.damages
     }
     
-   
-    
-    
-    // Class fighter character
-    
-    class Fighter: Character {
-        init(){
-            super.init(name: "", type: .Fighter, maxLifePoint: 100, lifePoint: 100, weapon: Sword())
-        }
-    }
-    
-    // Class Colossus character
-    
-    class Colossus: Character {
-        init(){
-            super.init(name: "", type: .Colossus, maxLifePoint: 150, lifePoint: 150, weapon: Mace())
-        }
-    }
-    
-    //class Dwarf character
-    
-    class Dwarf: Character {
-        init(){
-            super.init(name: "", type: .Dwarf, maxLifePoint: 120, lifePoint: 120, weapon: Axe())
-        }
-    }
-    
-    //class Fairy Character BONUS
-    
-    class Fairy: Character{
-        init(){
-            super.init(name: "", type: .Fairy, maxLifePoint: 180, lifePoint: 180, weapon: Saber())
-        }
-    }
-    
 }
+
+
+// Class fighter character
+
+class Fighter: Character {
+    init(){
+        super.init(name: "", type: .Fighter, maxLifePoint: 100, lifePoint: 100, weapon: Sword())
+    }
+}
+
+// Class Colossus character
+
+class Colossus: Character {
+    init(){
+        super.init(name: "", type: .Colossus, maxLifePoint: 150, lifePoint: 150, weapon: Mace())
+    }
+}
+
+//class Dwarf character
+
+class Dwarf: Character {
+    init(){
+        super.init(name: "", type: .Dwarf, maxLifePoint: 120, lifePoint: 120, weapon: Axe())
+    }
+}
+
+
+
+
+
+
 
