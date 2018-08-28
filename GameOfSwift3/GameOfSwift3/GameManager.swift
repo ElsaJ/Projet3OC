@@ -35,12 +35,6 @@ class GameManager {
     func startGame() {
         var attackerPlayer = playerOne
         var attackedPlayer = playerTwo
-        let str = """
-                       🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
-                       🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊
-                       🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
-         """
-        print(str)
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
             print("\n Use number to choose character for the attack (or the Magus to heal)")
             swap(&attackerPlayer, &attackedPlayer)
@@ -74,6 +68,15 @@ class GameManager {
     func restart() {
         playerOne.reinitTeam()
         playerTwo.reinitTeam()
+    }
+    
+    private func printStart() {
+        let str = """
+                       🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+                       🥊🥊🥊 LET THE FIGHT BEGIN !🥊🥊🥊
+                       🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
+         """
+        print(str)
     }
     
     private func randomChest(type: Character) {
