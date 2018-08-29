@@ -45,7 +45,8 @@ class GameManager {
             let attacker = attackerPlayer.selectedCharacter()
             randomWeapon(type: attacker)
             if attacker.type == .Magus {
-                magusAction(type: attacker)
+                let healed = playerOne.selectedCharacter()
+                heal(healer: attacker, healed: healed)
             } else {
                 print("\n Choose an ennemy to attack")
                 attackedPlayer.showTeamDuringTheGame()
@@ -103,17 +104,6 @@ class GameManager {
                 type.weapon = changeHealingTool(type: type)
             } else {
                 type.weapon = changeWeapon(type: type) }
-        }
-    }
-    
-    /// private method to manage magus's action
-    ///
-    /// - Parameter type: Magus
-    private func magusAction(type: Character) {
-        if type.type == .Magus {
-            print("\nChoose character you want to treat")
-            let healed = playerOne.selectedCharacter()
-            heal(healer: type, healed: healed)
         }
     }
     
@@ -197,7 +187,7 @@ class GameManager {
     /// private method to show the list of characters available
     private func showList() {
         let str = """
-        This is the list of characters available :
+        This is the list of characters available:\n
         \(CharacterType.Fighter.rawValue)/ Fighter, a classic warrior 🥊
         \(CharacterType.Colossus.rawValue)/ Colossus, very resistant 💪🏼
         \(CharacterType.Dwarf.rawValue)/ Dwarf, watch out for his axe! 🧝🏼‍♂️
@@ -313,8 +303,8 @@ class GameManager {
         let randomIndex = Int(arc4random_uniform(UInt32(attackWeapons.count)))
         let newAttackWeapon = attackWeapons[randomIndex]
         let str = """
-        \n  🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
-        You've got a new weapon: \(newAttackWeapon.name)
+        \n 🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
+            You've got a new weapon: \(newAttackWeapon.name)
         🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
         """
         print(str)
