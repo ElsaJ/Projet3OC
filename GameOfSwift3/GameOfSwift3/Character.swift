@@ -8,8 +8,7 @@
 
 import Foundation
 
-// Creating class Character
-
+/// enumeration to assign an intiger to each character's type
 enum CharacterType: Int {
     case Fighter = 1
     case Colossus 
@@ -18,6 +17,7 @@ enum CharacterType: Int {
     case Magus
 }
 
+/// class to define a character
 class Character {
     
     var name: String
@@ -33,6 +33,9 @@ class Character {
         self.weapon = weapon
     }
     
+    /// method to verify if the character is alive
+    ///
+    /// - Returns: return a bool, if it's false, the character is dead
     func isAlive() -> Bool {
         if lifePoint < 1 {
             return false
@@ -41,6 +44,9 @@ class Character {
         }
     }
     
+    /// method to recover a number corresponding to the damages that each weapon inflicts
+    ///
+    /// - Returns: return an intiger
     func damages() -> Int {
         return weapon.damages
     }
@@ -48,24 +54,23 @@ class Character {
 }
 
 
-// Class fighter character
-
+/// Class to define the fighter
 class Fighter: Character {
     init(){
         super.init(name: "", type: .Fighter, maxLifePoint: 100, lifePoint: 100, weapon: Sword())
     }
 }
 
-// Class Colossus character
 
+/// class to define the colossus
 class Colossus: Character {
     init(){
         super.init(name: "", type: .Colossus, maxLifePoint: 150, lifePoint: 150, weapon: Mace())
     }
 }
 
-//class Dwarf character
 
+/// class to define the dwarf
 class Dwarf: Character {
     init(){
         super.init(name: "", type: .Dwarf, maxLifePoint: 120, lifePoint: 120, weapon: Axe())

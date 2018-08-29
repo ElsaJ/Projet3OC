@@ -7,13 +7,19 @@
 //
 
 import Foundation
+
+/// BONUS
+/// class to define a fairy
 class Fairy: Character {
     
     init(){
         super.init(name: "", type: .Fairy, maxLifePoint: 180, lifePoint: 180, weapon: Saber())
     }
     
-    private func fairyPower(attacked: Character) {
+    /// method to allow the fairy's attack
+    ///
+    /// - Parameter attacked: character attacked by the fairy
+    func fairyPower(attacked: Character) {
         if attacked.weapon.name != "Flower" {
             print("\n🌺🌻🌼 \(attacked.name), the fairy changed your weapon in a powerless flower 🌹🌸💐")
             attacked.weapon = Flower()

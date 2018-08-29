@@ -73,9 +73,9 @@
 				E55F49AD20D7A35200FDCCFC /* GameManager.swift */,
 				E52BCE9920DA27130051DDF1 /* Player.swift */,
 				E52BCE9B20DB76560051DDF1 /* Character.swift */,
-				E51A98AC2115E6CF00C072B7 /* Weapon.swift */,
 				E5870D6221356F8B00269D14 /* Magus.swift */,
 				E5870D642135701300269D14 /* Fairy.swift */,
+				E51A98AC2115E6CF00C072B7 /* Weapon.swift */,
 			);
 			path = GameOfSwift3;
 			sourceTree = "<group>";
