@@ -12,8 +12,8 @@ import Foundation
 /// class to define a fairy
 class Fairy: Character {
     
-    init(){
-        super.init(name: "", type: .Fairy, maxLifePoint: 180, lifePoint: 180, weapon: Saber())
+    init(name: String){
+        super.init(name: name, type: .Fairy, maxLifePoint: 180, lifePoint: 180, weapon: Saber())
     }
     
     /// method to allow the fairy's attack

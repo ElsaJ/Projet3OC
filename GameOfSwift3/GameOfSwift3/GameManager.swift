@@ -203,11 +203,15 @@ class GameManager {
     private func characterChoice() -> Character {
         let characterType = chooseCharacterType()
         let characterName = chooseCharacterName()
-        let characterLifePoint = getLifePoint(type: characterType)
-        let lifePoint = getLifePoint(type: characterType)
-        let characterTools = getWeaponOrHealingTool(type: characterType)
         
-        return Character(name: characterName, type: characterType, maxLifePoint: characterLifePoint, lifePoint: lifePoint, weapon: characterTools)
+        switch characterType {
+        case .Fighter: return Fighter(name: characterName)
+        case .Colossus: return Colossus(name: characterName)
+        case .Dwarf: return Dwarf(name: characterName)
+        case .Magus: return Magus(name: characterName)
+        case .Fairy: return Fairy(name: characterName)
+        
+        }
     }
     
     /// private method to choose a character type
