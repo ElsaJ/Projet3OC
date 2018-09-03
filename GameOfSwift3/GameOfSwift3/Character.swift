@@ -47,33 +47,33 @@ class Character {
     /// method to recover a number corresponding to the damages that each weapon inflicts
     ///
     /// - Returns: return an intiger
-    func damages() -> Int {
+    func getDamages() -> Int {
         return weapon.damages
     }
     
 }
 
-
+/// normally, I should create one file per class, in those cases, classes are very minimalist, so I decided to let them in the character's file
 /// Class to define the fighter
 class Fighter: Character {
-    init(){
-        super.init(name: "", type: .Fighter, maxLifePoint: 100, lifePoint: 100, weapon: Sword())
+    init(name: String){
+        super.init(name: name, type: .Fighter, maxLifePoint: 100, lifePoint: 100, weapon: Sword())
     }
 }
 
 
 /// class to define the colossus
 class Colossus: Character {
-    init(){
-        super.init(name: "", type: .Colossus, maxLifePoint: 150, lifePoint: 150, weapon: Mace())
+    init(name: String){
+        super.init(name: name, type: .Colossus, maxLifePoint: 150, lifePoint: 150, weapon: Mace())
     }
 }
 
 
 /// class to define the dwarf
 class Dwarf: Character {
-    init(){
-        super.init(name: "", type: .Dwarf, maxLifePoint: 120, lifePoint: 120, weapon: Axe())
+    init(name: String){
+        super.init(name: name, type: .Dwarf, maxLifePoint: 120, lifePoint: 120, weapon: Axe())
     }
 }
 

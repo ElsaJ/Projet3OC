@@ -18,7 +18,7 @@ class Player {
     private var name = ""
     
     /// method to allow the player to choose a name
-    func nameYourself() {
+    func setName() {
         print("\n Hello player, please enter your name: ")
         if let name = readLine(),
             name != "" {
@@ -26,7 +26,7 @@ class Player {
             self.name = name
         } else  {
             print("error in naming, try again:")
-            nameYourself()
+            setName()
         }
     }
     
@@ -45,7 +45,7 @@ class Player {
     }
     
     /// private method to show the player's team during the game(dead characters aren't printed)
-    func showTeamDuringTheGame() {
+    func showTeam() {
         for (index, character) in team.enumerated() {
             if character.lifePoint > 0 {
                 print("\n\(index): \(character.name) the \(character.type): \(character.lifePoint) 💜, \(character.weapon.name)")}
@@ -55,7 +55,7 @@ class Player {
     /// method to selected the character for the attack (or magus to treat)
     ///
     /// - Returns: return the selected character
-    func selectedCharacter() -> Character {
+    func selectCharacter() -> Character {
         print("\nChoice:")
         if let choice = readLine(),
             choice != "",
@@ -66,7 +66,7 @@ class Player {
             return team[indexChoice]
         } else {
             print("❌ Error, try again! ❌ ")
-            return selectedCharacter()
+            return selectCharacter()
         }
     }
     
@@ -83,7 +83,7 @@ class Player {
     }
     
     /// method to print the winner's name
-    func printWinner() {
+    func printWinnerIfNeeded() {
         if isTeamAlive() == true {
             let str = """
             🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇

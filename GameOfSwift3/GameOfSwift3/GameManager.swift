@@ -24,33 +24,33 @@ class GameManager {
   
     /// method to name both of players and create teams
     func initGame() {
-        playerOne.nameYourself()
+        playerOne.setName()
         let team1 = createTeam()
         playerOne.team = team1
         playerOne.printTeam()
-        playerTwo.nameYourself()
+        playerTwo.setName()
         let team2 = createTeam()
         playerTwo.team = team2
         playerTwo.printTeam()
     }
     
     /// method to manage fights beetween the teams and healing process
-    func game() {
+    func runGame() {
         var attackerPlayer = playerOne
         var attackedPlayer = playerTwo
         while playerOne.isTeamAlive() && playerTwo.isTeamAlive() == true {
             swap(&attackerPlayer, &attackedPlayer)
             print("\n Use number to choose character for the attack (or the Magus to heal)")
-            attackerPlayer.showTeamDuringTheGame()
-            let attacker = attackerPlayer.selectedCharacter()
+            attackerPlayer.showTeam()
+            let attacker = attackerPlayer.selectCharacter()
             randomWeapon(type: attacker)
             if attacker.type == .Magus {
-                let healed = playerOne.selectedCharacter()
+                let healed = playerOne.selectCharacter()
                 heal(healer: attacker, healed: healed)
             } else {
                 print("\n Choose an ennemy to attack")
-                attackedPlayer.showTeamDuringTheGame()
-                let attacked = attackedPlayer.selectedCharacter()
+                attackedPlayer.showTeam()
+                let attacked = attackedPlayer.selectCharacter()
                 if fairyAction(attacker: attacker, attacked: attacked) == true {
                     fight(attacker: attacker, attacked: attacked)
                 } else {
@@ -61,15 +61,15 @@ class GameManager {
     }
     
     /// method to print number of rounds and the winner of the game
-    func endOfTheGame() {
+    func endGame() {
         let str = """
         🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
         🥊🥊🥊🥊🥊 AFTER \(numberOfTurn) ATTACKS 🥊🥊🥊🥊🥊
         🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊🥊
         """
         print(str)
-        playerOne.printWinner()
-        playerTwo.printWinner()
+        playerOne.printWinnerIfNeeded()
+        playerTwo.printWinnerIfNeeded()
     }
     
     /// method to reinitalize both teams
@@ -117,7 +117,7 @@ class GameManager {
         var isAFairy: Bool
         if attacker.type == .Fairy {
             let attacker = Fairy()
-            attacker.fairyPower(attacked: attacked)
+            attacker.attack(attacked: attacked)
             isAFairy = true
         } else {
             isAFairy = false
@@ -133,7 +133,7 @@ class GameManager {
     ///   - attacker: character of team one
     ///   - attacked: character of team two
     private func fight(attacker: Character, attacked: Character) {
-        let damages = attacker.damages()
+        let damages = attacker.getDamages()
         attacked.lifePoint -= damages
         if attacked.lifePoint > 0 {
             let str = """
@@ -156,7 +156,7 @@ class GameManager {
     private func heal(healer: Character, healed: Character) {
         if healer.type == .Magus {
             let healer = Magus()
-            let heal = healer.healing()
+            let heal = healer.heal()
             healed.lifePoint += heal
         }
         let str = """
@@ -275,7 +275,7 @@ class GameManager {
         }
     }
     
-    /// privaet method to get character's weapon (or healing tool for the Magus)
+    /// private method to get character's weapon (or healing tool for the Magus)
     ///
     /// - Parameter type: the type of the character
     /// - Returns: return a weapon

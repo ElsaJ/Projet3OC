@@ -18,8 +18,8 @@ class Magus: Character {
     /// method to recover a number corresponding to the healing process of each healing tools
     ///
     /// - Returns: return an intiger
-    func healing() -> Int {
-        return weapon.healing
+    func heal() -> Int {
+        return weapon.heal
         
     }
 }

@@ -16,8 +16,8 @@ private var numberOfRounds = 1
 var gameManager = GameManager()
 print("\n💪🏼⚔️💪🏼⚔️ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐆𝐀𝐌𝐄 𝐎𝐅 𝐒𝐖𝐈𝐅𝐓 𝐈𝐈𝐈 ⚔️💪🏼⚔️💪🏼")
 gameManager.initGame()
-gameManager.game()
-gameManager.endOfTheGame()
+gameManager.runGame()
+gameManager.endGame()
 
 /// private function to manage the game's menu
 private func menu() {
@@ -50,15 +50,15 @@ private func printMenu() {
 /// private function to restart the game with the same teams
 private func restartWithSameTeams() {
     gameManager.reinitBothTeams()
-    gameManager.game()
-    gameManager.endOfTheGame()
+    gameManager.runGame()
+    gameManager.endGame()
 }
 
 /// private function to restart the game with new teams
 private func makeNewTeam() {
     gameManager.initGame()
-    gameManager.game()
-    gameManager.endOfTheGame()
+    gameManager.runGame()
+    gameManager.endGame()
 }
 
 /// private function to quit the game

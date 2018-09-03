@@ -19,7 +19,7 @@ class Fairy: Character {
     /// method to allow the fairy's attack
     ///
     /// - Parameter attacked: character attacked by the fairy
-    func fairyPower(attacked: Character) {
+    func attack(attacked: Character) {
         if attacked.weapon.name != "Flower" {
             print("\n🌺🌻🌼 \(attacked.name), the fairy changed your weapon in a powerless flower 🌹🌸💐")
             attacked.weapon = Flower()
