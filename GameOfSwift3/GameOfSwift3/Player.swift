@@ -10,11 +10,15 @@ import Foundation
 
 // Creation class Player
 
+/// class to define a player
 class Player {
+    /// property which initialize an empty array to get the player's team
     var team: [Character] = []
+    /// private property which initialize the player's name
     private var name = ""
     
-    func nameYourself() {
+    /// method to allow the player to choose a name
+    func setName() {
         print("\n Hello player, please enter your name: ")
         if let name = readLine(),
             name != "" {
@@ -22,28 +26,36 @@ class Player {
             self.name = name
         } else  {
             print("error in naming, try again:")
-            nameYourself()
+            setName()
         }
     }
     
-    func resume() {
-        print("\n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼")
-        print("\n                    \(name)'s team:")
+    /// method to print the player's team
+    func printTeam() {
+        let str = """
+        \n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼\n
+                               \(name)'s team:\n
+        """
+        print(str)
         for character in team {
-            print("\n \(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.tools.name) in his hand")
+            print("\n \(character.type) \(character.name) who start with \(character.maxLifePoint) 💜 and \(character.weapon.name) in his hand")
         }
         
         print("\n👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼👦🏽👩🏻🧑🏿👱🏼‍♀️👧🏻🧒🏼\n")
     }
     
+    /// private method to show the player's team during the game(dead characters aren't printed)
     func showTeam() {
         for (index, character) in team.enumerated() {
             if character.lifePoint > 0 {
-                print("\n\(index): \(character.name) the \(character.type): \(character.lifePoint) 💜, \(character.tools.name)")}
+                print("\n\(index): \(character.name) the \(character.type): \(character.lifePoint) 💜, \(character.weapon.name)")}
         }
     }
     
-    func chooseCharacter() -> Character {
+    /// method to selected the character for the attack (or magus to treat)
+    ///
+    /// - Returns: return the selected character
+    func selectCharacter() -> Character {
         print("\nChoice:")
         if let choice = readLine(),
             choice != "",
@@ -54,10 +66,13 @@ class Player {
             return team[indexChoice]
         } else {
             print("❌ Error, try again! ❌ ")
-            return chooseCharacter()
+            return selectCharacter()
         }
     }
     
+    /// method to verify if at least one character in the team is alive
+    ///
+    /// - Returns: return a bool, if it's false, all of the characters are dead
     func isTeamAlive() -> Bool {
         let isTeamAlive = team.contains { character in character.isAlive()}
         if isTeamAlive == true {
@@ -67,11 +82,22 @@ class Player {
         }
     }
     
-    func printWinner() {
+    /// method to print the winner's name
+    func printWinnerIfNeeded() {
         if isTeamAlive() == true {
-            print("        🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇")
-            print("        🥇🥇🥇🥇 👏🏻👏🏻 \(name) WON THE GAME 👏🏻👏🏻🥇🥇🥇🥇")
-            print("        🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇\n")
+            let str = """
+            🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇
+            🥇🥇🥇🥇 👏🏻👏🏻 \(name) WON THE GAME 👏🏻👏🏻🥇🥇🥇🥇
+            🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇🥇\n
+            """
+            print(str)
+        }
+    }
+    
+    /// In case of the player restarting the game with the same team, this method restores the character's lifepoints
+    func reinitTeam() {
+        for character in team {
+            character.lifePoint = character.maxLifePoint
         }
     }
     

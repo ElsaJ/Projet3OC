@@ -8,8 +8,7 @@
 
 import Foundation
 
-// Creating class Character
-
+/// enumeration to assign an intiger to each character's type
 enum CharacterType: Int {
     case Fighter = 1
     case Colossus 
@@ -18,21 +17,25 @@ enum CharacterType: Int {
     case Magus
 }
 
+/// class to define a character
 class Character {
     
     var name: String
     var maxLifePoint: Int
     var lifePoint: Int
-    var tools: Weapons
+    var weapon: Weapon
     var type: CharacterType
-    init(name: String, type: CharacterType, maxLifePoint: Int, lifePoint: Int, tools: Weapons) {
+    init(name: String, type: CharacterType, maxLifePoint: Int, lifePoint: Int, weapon: Weapon) {
         self.name = name
         self.type = type
         self.maxLifePoint = maxLifePoint
         self.lifePoint = lifePoint
-        self.tools = tools
+        self.weapon = weapon
     }
     
+    /// method to verify if the character is alive
+    ///
+    /// - Returns: return a bool, if it's false, the character is dead
     func isAlive() -> Bool {
         if lifePoint < 1 {
             return false
@@ -41,72 +44,42 @@ class Character {
         }
     }
     
-    func damagesOrCare() -> Int {
-        switch tools {
-        case is Sword:
-            return 100
-        case is Mace:
-            return 5
-        case is Axe:
-            return 7
-        case is Saber:
-            return 6
-        case is MedicinalPlant:
-            return 15
-//        case is Bow:
-//            return 8
-//        case is ChainSaw:
-//            return 80
-//        case is Nunchaku:
-//            return 50
-//        case is MagicWand:
-//            return 25
-//        case is MagicPotion:
-//            return 10
-        default:
-            return 0
-        }
+    /// method to recover a number corresponding to the damages that each weapon inflicts
+    ///
+    /// - Returns: return an intiger
+    func getDamages() -> Int {
+        return weapon.damages
     }
     
-    
-    // Class fighter character
-    
-    class Fighter: Character {
-        init(){
-            super.init(name: "", type: .Fighter, maxLifePoint: 100, lifePoint: 100, tools: Sword())
-        }
-    }
-    
-    // Class Colossus character
-    
-    class Colossus: Character {
-        init(){
-            super.init(name: "", type: .Colossus, maxLifePoint: 150, lifePoint: 150, tools: Mace())
-        }
-    }
-    
-    //class Dwarf character
-    
-    class Dwarf: Character {
-        init(){
-            super.init(name: "", type: .Dwarf, maxLifePoint: 120, lifePoint: 120, tools: Axe())
-        }
-    }
-    
-    //class Fairy Character BONUS
-    
-    class Fairy: Character{
-        init(){
-            super.init(name: "", type: .Fairy, maxLifePoint: 180, lifePoint: 180, tools: Saber())
-        }
-    }
-    
-    //class Magus Character
-    
-    class Magus: Character {
-        init(){
-            super.init(name: "", type: .Magus, maxLifePoint: 80 , lifePoint: 80, tools: MedicinalPlant())
-        }
+}
+
+/// normally, I should create one file per class, in those cases, classes are very minimalist, so I decided to let them in the character's file
+/// Class to define the fighter
+class Fighter: Character {
+    init(name: String){
+        super.init(name: name, type: .Fighter, maxLifePoint: 100, lifePoint: 100, weapon: Sword())
     }
 }
+
+
+/// class to define the colossus
+class Colossus: Character {
+    init(name: String){
+        super.init(name: name, type: .Colossus, maxLifePoint: 150, lifePoint: 150, weapon: Mace())
+    }
+}
+
+
+/// class to define the dwarf
+class Dwarf: Character {
+    init(name: String){
+        super.init(name: name, type: .Dwarf, maxLifePoint: 120, lifePoint: 120, weapon: Axe())
+    }
+}
+
+
+
+
+
+
 
