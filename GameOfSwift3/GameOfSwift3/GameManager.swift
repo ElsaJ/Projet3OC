@@ -21,7 +21,7 @@ class GameManager {
     /// private property which give the number of turn in the game
     private var numberOfTurn = 0
     
-  
+    
     /// method to name both of players and create teams
     func initGame() {
         playerOne.setName()
@@ -45,7 +45,7 @@ class GameManager {
             let attacker = attackerPlayer.selectCharacter()
             randomWeapon(type: attacker)
             if attacker.type == .Magus {
-                let healed = playerOne.selectCharacter()
+                let healed = attackerPlayer.selectCharacter()
                 heal(healer: attacker, healed: healed)
             } else {
                 print("\n Choose an ennemy to attack")
@@ -93,7 +93,7 @@ class GameManager {
         return arc4random_uniform(2) == 0
     }
     
-  
+    
     /// private method which allow to change weapon or healing tool randomly
     ///
     /// - Parameter type: Magus or the other characters
@@ -116,7 +116,7 @@ class GameManager {
     private func fairyAction(attacker: Character, attacked: Character) -> Bool {
         var isAFairy: Bool
         if attacker.type == .Fairy {
-            let attacker = Fairy()
+            let attacker = Fairy(name: "")
             attacker.attack(attacked: attacked)
             isAFairy = true
         } else {
@@ -155,7 +155,7 @@ class GameManager {
     ///   - healed: character to heal in the same team
     private func heal(healer: Character, healed: Character) {
         if healer.type == .Magus {
-            let healer = Magus()
+            let healer = Magus(name: "")
             let heal = healer.heal()
             healed.lifePoint += heal
         }
@@ -210,7 +210,7 @@ class GameManager {
         case .Dwarf: return Dwarf(name: characterName)
         case .Magus: return Magus(name: characterName)
         case .Fairy: return Fairy(name: characterName)
-        
+            
         }
     }
     
@@ -260,44 +260,6 @@ class GameManager {
         
     }
     
-    /// private method to get character's lifepoints
-    ///
-    /// - Parameter type: the type of the character
-    /// - Returns: return lifepoints
-    private func getLifePoint(type: CharacterType) -> Int {
-        switch type {
-        case .Fighter:
-            return 100
-        case .Colossus:
-            return 150
-        case .Dwarf:
-            return 120
-        case .Fairy:
-            return 180
-        case .Magus:
-            return 80
-        }
-    }
-    
-    /// private method to get character's weapon (or healing tool for the Magus)
-    ///
-    /// - Parameter type: the type of the character
-    /// - Returns: return a weapon
-    private func getWeaponOrHealingTool(type: CharacterType) -> Weapon {
-        switch type {
-        case .Fighter:
-            return Sword()
-        case .Colossus:
-            return Mace()
-        case .Dwarf:
-            return Axe()
-        case .Fairy:
-            return Saber()
-        case .Magus:
-            return MedicinalPlant()
-        }
-    }
-    
     /// private method to change the weapon when the random chest appears
     ///
     /// - Parameter type: one character
@@ -308,7 +270,7 @@ class GameManager {
         let newAttackWeapon = attackWeapons[randomIndex]
         let str = """
         \n 🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑
-            You've got a new weapon: \(newAttackWeapon.name)
+        You've got a new weapon: \(newAttackWeapon.name)
         🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑🔑\n
         """
         print(str)
